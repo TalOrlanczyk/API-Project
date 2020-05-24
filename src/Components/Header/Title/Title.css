@@ -1,0 +1,38 @@
+
+.Title{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-right: .1rem solid rgba(128, 128, 128, 0.68);
+    border-left: .1rem solid rgba(128, 128, 128, 0.68);
+}
+
+@media only screen and (max-width: 960px) {
+
+    .Span-color{
+        color:var(--link-text-color);
+    
+        font-size: 250%;
+        float: left;
+        padding-left: 2%;
+    }
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+
+    .Span-color{
+        color:var(--link-text-color);
+    
+        font-size: 250%;
+        float: left;
+        padding-left: 2%;
+    }
+}
+@media only screen and (max-width: 430px) {
+
+    .Span-color{
+        color:var(--link-text-color);
+    
+        font-size: 100%;
+        float: left;
+        padding-left: 2%;
+    }
+}

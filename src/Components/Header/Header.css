@@ -1,0 +1,6 @@
+.Header-grid{
+    background: var(--nav-bar-background);
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 1fr;
+    height: 8vh;
+}

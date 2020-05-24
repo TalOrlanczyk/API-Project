@@ -1,0 +1,15 @@
+.CurrentDate {
+    color: white;
+    display: block;
+}
+.CurrentTime {
+    color: rgb(0, 216, 205);
+    padding-bottom: 5%;
+    font-size: x-large;
+    display: block;
+}
+.TimeAndData {
+    margin: 3%;
+    border-left: .1rem solid rgba(128, 128, 128, 0.68);
+
+}

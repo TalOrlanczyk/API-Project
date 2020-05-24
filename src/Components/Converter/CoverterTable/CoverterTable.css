@@ -1,0 +1,34 @@
+.positive {
+    color: var(--positive);
+}
+
+.negative{
+    color: var(--negative);
+}
+
+.same{
+    color: blue
+}
+.dd{
+    display: flex;
+    justify-content: center;
+}
+
+
+.tableCovertor {
+    margin-bottom: 1vh;
+    width: 50vh;
+    overflow: hidden;
+    border-radius: 1vh;
+    border-collapse: collapse;
+}
+
+.tableHeader{
+    background-color: #3d0080;
+    color: white;
+
+}
+
+.tableBody{
+    background-color: #bbbbbb;
+}

@@ -1,0 +1,12 @@
+.coverter-main{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    text-align: center;
+}
+.equals {
+    font-weight: bold;
+    font-size: 2rem;
+}

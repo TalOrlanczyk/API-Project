@@ -36,3 +36,144 @@
     transform: rotate(360deg);
   }
 }
+.App {
+  text-align: center;
+  height: 100%;
+  background-color: var(--web-wash);;
+}
+html, body {
+  height: 100%;
+  background-color: var(--web-wash);;
+  width: 100%;
+}
+#root {
+  min-height: 100%;
+}
+:root {
+    --hover-overlay:  rgba(78, 156, 175, 0.51);
+    --nav-bar-background:  #FFFFFF;
+    --nav-bar-background-gradient:  linear-gradient(to top, #FFFFFF, rgb(255, 255, 255), rgba(255,255,255,0.7), rgba(255,255,255,0.4), rgba(255,255,255,0));
+    --negative:  hsl(350, 87%, 55%);
+    --placeholder-icon:  #8A8D91;
+    --placeholder-text:  #8A8D91;
+    --placeholder-text-on-media:  rgba(255, 255, 255, 0.5);
+    --popover-background:  #FFFFFF;
+    --positive:  #31A24C;
+     --section-header-text:  #4B4C4F;
+    --shadow-1:  rgba(0, 0, 0, 0.1);
+    --shadow-2:  rgba(0, 0, 0, 0.2);
+    --shadow-5:  rgba(0, 0, 0, 0.5);
+    --shadow-inset:  rgba(255, 255, 255, 0.5);
+    --surface-background:  #FFFFFF;
+    --text-highlight:  rgba(24, 119, 242, 0.2);
+    --toggle-active-background:  #E7F3FF;
+    --toggle-active-icon:  rgb(24, 119, 242);
+    --toggle-active-text:  rgb(24, 119, 242);
+    --toggle-button-active-background:  #E7F3FF;
+    --wash:  #E4E6EB;
+    --web-wash:  #F0F2F5;
+    --warning:  hsl(40, 89%, 52%);
+    --link-background: #4E9CAF;
+    --link-text-color: black;
+    --link-no-decoration: none;
+    --display-link-as-button:  block;
+    --link-width: 20vw;
+    --link-hieght: 3vh;
+    --link-border-radius: 5px;
+    --coin-background: #d9a760;
+    --icon-color: purple;
+    --button-background: rgba(75,76,79,0.33);
+}
+
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #333; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #4e9caf; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: #757575; 
+}
+
+
+
+
+.darkmode:root, .darkmode {
+    --hover-overlay:  rgba(255, 255, 255, 0.1);
+    --nav-bar-background:  #242526;
+    --nav-bar-background-gradient:  linear-gradient(to top, #242526, rgba(36,37,38,0.9), rgba(36,37,38,0.7), rgba(36,37,38,0.4), rgba(36,37,38,0));
+    --negative:  hsl(350, 87%, 55%);
+    --new-notification-background:  #E7F3FF;
+    --non-media-pressed:  rgba(68, 73, 80, 0.15);
+    --non-media-pressed-on-dark:  rgba(255, 255, 255, 0.3);
+    --notification-badge:  #F02849;
+    --placeholder-icon:  #8A8D91;
+    --placeholder-text:  #8A8D91;
+    --placeholder-text-on-media:  rgba(255, 255, 255, 0.5);
+    --popover-background:  #3E4042;
+    --positive:  #31A24C;
+    --positive-background:  #1F3520;
+    --press-overlay:  rgba(255, 255, 255, 0.1);
+    --primary-button-background:  #2D88FF;
+    --primary-button-pressed:  #77A7FF;
+    --primary-button-text:  #FFFFFF;
+    --primary-deemphasized-button-background:  rgba(255, 255, 255, 0.1);
+    --primary-deemphasized-button-pressed:  rgba(24, 119, 242, 0.2);
+    --primary-deemphasized-button-pressed-overlay:  rgba(25, 110, 255, 0.15);
+    --primary-deemphasized-button-text:  #2D88FF;
+    --primary-icon:  #E4E6EB;
+    --primary-text:  #E4E6EB;
+    --primary-text-on-media:  white;
+    --progress-ring-neutral-background:  rgba(255, 255, 255, 0.2);
+    --progress-ring-neutral-foreground:  #ffffff;
+    --progress-ring-on-media-background:  rgba(255, 255, 255, 0.2);
+    --progress-ring-on-media-foreground:  #FFFFFF;
+    --progress-ring-blue-background:  rgba(45, 136, 255, 0.2);
+    --progress-ring-blue-foreground:  hsl(214, 100%, 59%);
+    --progress-ring-disabled-background:  rgba(122,125,130, 0.2);
+    --progress-ring-disabled-foreground:  #7A7D82;
+    --secondary-button-background:  rgba(255,255,255,0.1);
+    --secondary-button-background-floating:  #4B4C4F;
+    --secondary-button-background-on-dark:  rgba(255, 255, 255, 0.4);
+    --secondary-button-pressed:  rgba(0, 0, 0, 0.05);
+    --secondary-button-text:  #E4E6EB;
+    --secondary-icon:  #B0B3B8;
+    --secondary-text:  #B0B3B8;
+    --secondary-text-on-media:  rgba(255, 255, 255, 0.9);
+    --section-header-text:  #BCC0C4;
+    --shadow-1:  rgba(0, 0, 0, 0.1);
+    --shadow-2:  rgba(0, 0, 0, 0.2);
+    --shadow-5:  rgba(0, 0, 0, 0.5);
+    --shadow-inset:  rgba(255, 255, 255, 0.05);
+    --surface-background:  #242526;
+    --text-highlight:  rgba(24, 119, 242, 0.45);
+    --toggle-active-background:  rgb(45, 136, 255);
+    --toggle-active-icon:  #FFFFFF;
+    --toggle-active-text:  #FFFFFF;
+    --toggle-button-active-background:  #E6F2FF;
+    --wash:  #3E4042;
+    --web-wash:  #18191A;
+    --warning:  hsl(40, 89%, 52%);
+    --link-background: #4E9CAF;
+    --link-text-color: white;
+    --link-no-decoration: none;
+    --display-link-as-button:  block;
+    --link-width: 20vw;
+    --link-hieght: 3vh;
+    --link-border-radius: 5px;
+    --coin-background: #d9a760;
+    --icon-color: #ba68c8;
+    --button-background: #333;
+}
