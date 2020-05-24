@@ -8,9 +8,6 @@ const CurrencyRow = (props) => {
     const wrapperRef = useRef(null);
     const useOutsideAlerter = (ref) => {
         useEffect(() => {
-            /**
-             * Alert if clicked on outside of element
-             */
             function handleClickOutside(event) {
                 if (ref.current && !ref.current.contains(event.target)) {
                     if (open === true)
@@ -24,7 +21,7 @@ const CurrencyRow = (props) => {
                 // Unbind the event listener on clean up
                 document.removeEventListener("mousedown", handleClickOutside);
             };
-        }, [ref]);
+        }, [ref,open]);
     }
     useOutsideAlerter(wrapperRef);
     const {
@@ -38,19 +35,21 @@ const CurrencyRow = (props) => {
 
     return (
         <div className="Currecy">
-            <div className={open === true ? "color-picker open" : "color-picker"} onClick={(e) => { setOpen(!open) }} >
+            <div className={open === true ? "color-picker open" : "color-picker"} onClick={(e) => {
+                setOpen(!open)
+            }} >
                 <input id="color-input" type="hidden" name="coloris_panneau" value={pickedCoin} />
                 <div className="color-value list-item">{selectedCurrency}<ArrowDownwardIcon className={open === true ? "arrowdown upside" : "arrowdown"} /></div>
                 <ul className="list" ref={open === true ? wrapperRef : null} >
 
                     {currencyOptions
                         .filter(currency => currency !== compereCurreny)
-                        .map((option) => 
-                           
-                                    <li key={option} className={selectedCurrency === option ? "list-item picked" : "list-item"} onClick={(e) => onChangeCurrency(option)}>
-                                        <span>{option}</span>
-                                    </li>
-                                
+                        .map((option) =>
+
+                            <li key={option} className={selectedCurrency === option ? "list-item picked" : "list-item"} onClick={(e) => onChangeCurrency(option)}>
+                                <span>{option}</span>
+                            </li>
+
                         )
                     }
                 </ul>

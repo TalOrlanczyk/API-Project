@@ -54,11 +54,13 @@ html, body {
     --nav-bar-background:  #FFFFFF;
     --nav-bar-background-gradient:  linear-gradient(to top, #FFFFFF, rgb(255, 255, 255), rgba(255,255,255,0.7), rgba(255,255,255,0.4), rgba(255,255,255,0));
     --negative:  hsl(350, 87%, 55%);
+    --negative2: hsl(350, 100%, 31%);
     --placeholder-icon:  #8A8D91;
     --placeholder-text:  #8A8D91;
     --placeholder-text-on-media:  rgba(255, 255, 255, 0.5);
     --popover-background:  #FFFFFF;
     --positive:  #31A24C;
+    --positive2:  rgb(11, 82, 28);
      --section-header-text:  #4B4C4F;
     --shadow-1:  rgba(0, 0, 0, 0.1);
     --shadow-2:  rgba(0, 0, 0, 0.2);
@@ -83,6 +85,12 @@ html, body {
     --coin-background: #d9a760;
     --icon-color: purple;
     --button-background: rgba(75,76,79,0.33);
+    --table-header:#3d0080;
+    --table-background: #bbbbbb;
+    --scrollbar-color:#4e9caf;
+    --background-list: #fff;
+    --background-list-hover: #6d6d6d59;
+    --color-text: #666;
 }
 
 
@@ -98,7 +106,8 @@ html, body {
  
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  background: #4e9caf; 
+  background-color: var(--scrollbar-color); 
+  transition: background-color 3s;
   border-radius: 10px;
 }
 
@@ -115,6 +124,7 @@ html, body {
     --nav-bar-background:  #242526;
     --nav-bar-background-gradient:  linear-gradient(to top, #242526, rgba(36,37,38,0.9), rgba(36,37,38,0.7), rgba(36,37,38,0.4), rgba(36,37,38,0));
     --negative:  hsl(350, 87%, 55%);
+    --negative2: hsl(350, 100%, 77%);
     --new-notification-background:  #E7F3FF;
     --non-media-pressed:  rgba(68, 73, 80, 0.15);
     --non-media-pressed-on-dark:  rgba(255, 255, 255, 0.3);
@@ -124,6 +134,7 @@ html, body {
     --placeholder-text-on-media:  rgba(255, 255, 255, 0.5);
     --popover-background:  #3E4042;
     --positive:  #31A24C;
+    --positive2: #31A24C;
     --positive-background:  #1F3520;
     --press-overlay:  rgba(255, 255, 255, 0.1);
     --primary-button-background:  #2D88FF;
@@ -176,4 +187,10 @@ html, body {
     --coin-background: #d9a760;
     --icon-color: #ba68c8;
     --button-background: #333;
+    --table-header:#9c27b0;
+    --table-background: rgba(208,208,208,0.35);
+    --scrollbar-color:#3a3b3c;
+    --background-list: #464646;
+    --background-list-hover: #6d6d6d59;
+    --color-text: #a09898;
 }

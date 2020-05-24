@@ -3,9 +3,10 @@ import './CoverterTable.css';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 const BASE_URL = 'https://api.exchangeratesapi.io/';
 const CoverterTable = () => {
-    const [latestRate, setLatestRate] = useState();
-    const [yesterdayRate, setYesterdayRate] = useState();
+    const [latestRate, setLatestRate] = useState({});
+    const [yesterdayRate, setYesterdayRate] = useState({});
     const [coinLength, setCoinLength] = useState("");
+    
     useEffect(() => {
         fetch(`${BASE_URL}latest`)
             .then(res => res.json())
@@ -42,7 +43,7 @@ const CoverterTable = () => {
                 })
             })
 
-    }, [latestRate, yesterdayRate])
+    }, [])
     
     const dailyChange = (option) => {
         let precentege = (option[1] / yesterdayRate[option[0]]) * 100;

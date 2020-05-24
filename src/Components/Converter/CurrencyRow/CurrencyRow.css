@@ -150,9 +150,9 @@ button {
     width: 150px;
     overflow: hidden;
     margin-bottom: 1vh;
-    color: #666;
-    background: #FFF;
-
+    color: var(--color-text);
+    background-color: var(--background-list);
+    transition: background-color 1s, color 1s;
 }
 .open {
     overflow: visible;;
@@ -163,16 +163,16 @@ button {
     overflow-y: scroll;
     overflow-x: hidden;
     max-height: 30vh;
-    border: 1px solid #CCC;
+    border: 1px solid var(--background-list);
     border-top: none;
-    background: #FFF;
+    background:  var(--background-list);
 }
 .list-item {
     padding: 5px;
     cursor: pointer;
 }
 .list-item:hover {
-    background: #f1f1f1;
+    background: var(--background-list-hover);
 }
 .list-item > span {
     display: inline-block;
@@ -187,10 +187,10 @@ button {
 .color-value {
     height: 30px;
     line-height: 30px;
-    padding: 0 5px;
+    padding: 0 0;
     width: 100%;
     cursor: pointer;
-    border: 1px solid #CCC;
+    /* border: 1px solid #CCC; */
 }
 .list-item.picked{
     background-color: rgba(148,154,183,0.3);

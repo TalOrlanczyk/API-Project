@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './CoverterAmount.css';
 import CurrencyRow from '../CurrencyRow/CurrencyRow';
 const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 const CoverterAmount = () => {
     const [currencyOptions, setCurrencyOptions] = useState([])
-    const [fromCurrency, setFromCurrency] = useState("")
-    const [toCurrency, setToCurrency] = useState("")
-    const [exchangeRate, setExchangeRate] = useState("")
+    const [fromCurrency, setFromCurrency] = useState()
+    const [toCurrency, setToCurrency] = useState()
+    const [exchangeRate, setExchangeRate] = useState()
     const [amount, setAmount] = useState(1)
     const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
 
@@ -40,24 +40,24 @@ const CoverterAmount = () => {
     }, [fromCurrency, toCurrency])
 
 
-    const handleFromAmountChange = (e) => {
+    const handleFromAmountChange = useCallback((e) => {
         setAmount(e.target.value)
         setAmountInFromCurrency(true)
-    }
+    },[])
 
-    const handleToAmountChange = (e) => {
+    const handleToAmountChange = useCallback((e) => {
         setAmount(e.target.value)
         setAmountInFromCurrency(false)
-    }
-    if ( fromCurrency == null || toCurrency == null || currencyOptions == null || fromAmount == null)
+    },[])
+    if ( fromCurrency == null || toCurrency == null || currencyOptions == null || fromAmount == null || exchangeRate == null)
     return 'Loading....'
     return ( 
             <div className="coverter-main">
                 <CurrencyRow
                     currencyOptions={currencyOptions}
                     selectedCurrency={fromCurrency}
-                    onChangeCurrency={e => setFromCurrency(e)}
-                    onChangeAmount={handleFromAmountChange}
+                    onChangeCurrency={(e) => setFromCurrency(e)}
+                    onChangeAmount={(e) =>handleFromAmountChange(e)}
                     amount={fromAmount}
                     compereCurreny={toCurrency}
                 />
@@ -65,8 +65,8 @@ const CoverterAmount = () => {
                 <CurrencyRow
                     currencyOptions={currencyOptions}
                     selectedCurrency={toCurrency}
-                    onChangeCurrency={e => setToCurrency(e)}
-                    onChangeAmount={handleToAmountChange}
+                    onChangeCurrency={(e) => setToCurrency(e)}
+                    onChangeAmount={(e) =>handleToAmountChange(e)}
                     amount={toAmount}
                     compereCurreny={fromCurrency}
                 />

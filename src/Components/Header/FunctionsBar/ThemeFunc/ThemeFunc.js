@@ -14,7 +14,7 @@ const ThemeFunc = () => {
             element.classList.add(ca[1]);
             setTheme(ca[1])
         } else {
-            element.classList.add(lightmode);
+            element.classList.add("lightmode");
             setTheme("lightmode")
         }
 

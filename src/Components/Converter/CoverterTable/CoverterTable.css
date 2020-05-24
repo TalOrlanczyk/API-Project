@@ -1,9 +1,11 @@
 .positive {
-    color: var(--positive);
+    color: var(--positive2);
+    transition: color 1s;
 }
 
 .negative{
-    color: var(--negative);
+    color: var(--negative2);
+    transition: color 1s;
 }
 
 .same{
@@ -24,11 +26,12 @@
 }
 
 .tableHeader{
-    background-color: #3d0080;
+    background-color: var(--table-header);
+    transition: background-color 1s;
     color: white;
 
 }
 
 .tableBody{
-    background-color: #bbbbbb;
+    background-color: var(--table-background);
 }
