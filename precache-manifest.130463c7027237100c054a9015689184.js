@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0b4fbac43cada123f7d106f639a799ad",
+    "revision": "d6aff43548ca2f58ae890821f181a211",
     "url": "/ApisProjects/index.html"
   },
   {
-    "revision": "d494bebcb6f282561d5e",
-    "url": "/ApisProjects/static/css/main.05664085.chunk.css"
+    "revision": "621682aee52398c05244",
+    "url": "/ApisProjects/static/css/main.7c4f97df.chunk.css"
   },
   {
     "revision": "dfabe78245b7fdb641de",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ApisProjects/static/js/2.57b7673b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d494bebcb6f282561d5e",
-    "url": "/ApisProjects/static/js/main.f0268f87.chunk.js"
+    "revision": "621682aee52398c05244",
+    "url": "/ApisProjects/static/js/main.900d7b7c.chunk.js"
   },
   {
     "revision": "ff722e4f121edf8f827f",
