@@ -65,6 +65,7 @@ html, body {
     --shadow-1:  rgba(0, 0, 0, 0.1);
     --shadow-2:  rgba(0, 0, 0, 0.2);
     --shadow-5:  rgba(0, 0, 0, 0.5);
+    --shadow-05:  rgba(0, 0, 0, 0.5);
     --shadow-inset:  rgba(255, 255, 255, 0.5);
     --surface-background:  #FFFFFF;
     --text-highlight:  rgba(24, 119, 242, 0.2);
@@ -91,7 +92,12 @@ html, body {
     --background-list: #fff;
     --background-list-hover: #6d6d6d59;
     --color-text: #666;
-}
+    --background-input : #cac1c1;
+    --color-text2: rgb(165, 165, 165);
+    --loading-backgorund: rgb(165, 165, 165);
+    --grahp-color:#2f3bc7;
+    --text-color: #000000;
+  }
 
 
 *::-webkit-scrollbar {
@@ -167,6 +173,7 @@ html, body {
     --shadow-1:  rgba(0, 0, 0, 0.1);
     --shadow-2:  rgba(0, 0, 0, 0.2);
     --shadow-5:  rgba(0, 0, 0, 0.5);
+    --shadow-05:  rgba(82, 82, 82, 0.5);
     --shadow-inset:  rgba(255, 255, 255, 0.05);
     --surface-background:  #242526;
     --text-highlight:  rgba(24, 119, 242, 0.45);
@@ -193,4 +200,9 @@ html, body {
     --background-list: #464646;
     --background-list-hover: #6d6d6d59;
     --color-text: #a09898;
+    --background-input : #635e5e;
+    --color-text2: rgb(165, 165, 165);
+    --loading-backgorund: rgb(165, 165, 165);
+    --grahp-color:#b9bfff;
+    --text-color: #bbb9b9;
 }

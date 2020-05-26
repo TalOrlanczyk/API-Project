@@ -1,38 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
+import 'date-fns';
+import React, { useState, useRef } from 'react';
 import './CurrencyRow.css';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
 
-const CurrencyRow = (props) => {
+const CurrencyRow = ({currencyOptions,selectedCurrency,onChangeCurrency,onChangeAmount,amount,compereCurreny}) => {
     const [open, setOpen] = useState(false);
     const [pickedCoin] = useState("");
     const wrapperRef = useRef(null);
-    const useOutsideAlerter = (ref) => {
-        useEffect(() => {
-            function handleClickOutside(event) {
-                if (ref.current && !ref.current.contains(event.target)) {
-                    if (open === true)
-                        setOpen(false)
-                }
-            }
 
-            // Bind the event listener
-            document.addEventListener("mousedown", handleClickOutside);
-            return () => {
-                // Unbind the event listener on clean up
-                document.removeEventListener("mousedown", handleClickOutside);
-            };
-        }, [ref,open]);
-    }
-    useOutsideAlerter(wrapperRef);
-    const {
-        currencyOptions,
-        selectedCurrency,
-        onChangeCurrency,
-        onChangeAmount,
-        amount,
-        compereCurreny
-    } = props
-
+    useOutsideClick(wrapperRef, () => {
+        if (open === true)
+            setOpen(false)
+    });
     return (
         <div className="Currecy">
             <div className={open === true ? "color-picker open" : "color-picker"} onClick={(e) => {
@@ -45,8 +25,8 @@ const CurrencyRow = (props) => {
                     {currencyOptions
                         .filter(currency => currency !== compereCurreny)
                         .map((option) =>
-
                             <li key={option} className={selectedCurrency === option ? "list-item picked" : "list-item"} onClick={(e) => onChangeCurrency(option)}>
+
                                 <span>{option}</span>
                             </li>
 

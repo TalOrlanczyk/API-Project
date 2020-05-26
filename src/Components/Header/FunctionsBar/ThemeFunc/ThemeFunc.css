@@ -1,3 +1,54 @@
+@media only screen and (max-width: 960px) {
+
+    .fab-class{
+        background-color: var(--button-background);
+        transition: background-color 1s;
+        color: rgba(0, 0, 0, 0.87);
+        width: 56px;
+        height: 56px;
+        outline: 0;
+        border-radius: 50%;
+        box-shadow: var(--shadow-1),
+                    var(--shadow-2),
+                    var(--shadow-5);
+        border:0;
+        
+    }
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+
+    .fab-class{
+        background-color: var(--button-background);
+        transition: background-color 1s;
+        color: rgba(0, 0, 0, 0.87);
+        width: 56px;
+        height: 56px;
+        outline: 0;
+        border-radius: 50%;
+        box-shadow: var(--shadow-1),
+                    var(--shadow-2),
+                    var(--shadow-5);
+        border:0;
+        
+    }
+}
+@media only screen and (max-width: 430px) {
+
+    .fab-class{
+        background-color: var(--button-background);
+        transition: background-color 1s;
+        color: rgba(0, 0, 0, 0.87);
+        width: 50px;
+        height: 50px;
+        outline: 0;
+        border-radius: 50%;
+        box-shadow: var(--shadow-1),
+                    var(--shadow-2),
+                    var(--shadow-5);
+        border:0;
+        
+    }
+}
 .ThemeFunc-flex { 
     display: flex;
     justify-content: center;
@@ -10,20 +61,6 @@
 /* .ThemeFunc-link{
     background-color: #333 !important;
 } */
-.fab-class{
-    background-color: var(--button-background);
-    transition: background-color 1s;
-    color: rgba(0, 0, 0, 0.87);
-    width: 56px;
-    height: 56px;
-    outline: 0;
-    border-radius: 50%;
-    box-shadow: var(--shadow-1),
-                var(--shadow-2),
-                var(--shadow-5);
-    border:0;
-    
-}
 .middle {
     width: 100%;
     display: inherit;

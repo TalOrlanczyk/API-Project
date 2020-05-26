@@ -4,7 +4,7 @@ import './Title.css';
 const Title = () => {
     return (
         <div className="Title">
-            <span className="Span-color">our project :)</span>
+            <span className="Span-color">myApiProject </span>
         </div>
     )
 }

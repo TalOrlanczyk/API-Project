@@ -3,6 +3,8 @@
     border-radius: .3em;
     padding: .25rem;
     width: 7em;
+    background-color: var(--background-input);
+    transition: background-color 1s;
 }
 select {
     margin-left: .5rem;
@@ -124,7 +126,7 @@ li:last-of-type > button {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 }
-button {
+/* button {
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -136,7 +138,7 @@ button {
     text-align: left;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
-}
+} */
 
 
 
@@ -155,7 +157,7 @@ button {
     transition: background-color 1s, color 1s;
 }
 .open {
-    overflow: visible;;
+    overflow: visible;
 }
 
 .list {
@@ -204,3 +206,4 @@ button {
     
     transition: transform 24s ;  
 }
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './CoverterAmount.css';
 import CurrencyRow from '../CurrencyRow/CurrencyRow';
+import Loading from '../../Loading/Loading'
 const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 const CoverterAmount = () => {
     const [currencyOptions, setCurrencyOptions] = useState([])
@@ -50,7 +51,7 @@ const CoverterAmount = () => {
         setAmountInFromCurrency(false)
     },[])
     if ( fromCurrency == null || toCurrency == null || currencyOptions == null || fromAmount == null || exchangeRate == null)
-    return 'Loading....'
+    return <Loading/>
     return ( 
             <div className="coverter-main">
                 <CurrencyRow

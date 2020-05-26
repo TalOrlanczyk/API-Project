@@ -11,9 +11,10 @@
 .same{
     color: blue
 }
-.dd{
+.table{
     display: flex;
     justify-content: center;
+    margin-top: 3vh;
 }
 
 
@@ -34,4 +35,16 @@
 
 .tableBody{
     background-color: var(--table-background);
+}
+
+.icon-color {
+    color: var(--grahp-color);
+    transition: color 1s;
+}
+.text-color{
+    color: var(--text-color);
+    transition: color 1s;
+}
+.date{
+    text-align: center;
 }
