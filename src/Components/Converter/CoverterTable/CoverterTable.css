@@ -48,3 +48,24 @@
 .date{
     text-align: center;
 }
+.date-border-color {
+    border-bottom : 1px solid var(--date-color) !important ;
+    transition: border-bottom 1s;
+}
+.date-border-color:hover::before {
+    border-bottom : 1.2px solid var(--date-color) !important ;
+}
+
+.date-label-color{
+    color: var(--date-color) !important;
+    transition: color 1s;
+}
+.date-input-color{
+    color: var(--date-color-input) !important;
+    transition: color 1s;
+}
+
+.date-search {
+    color: var(--date-color) !important;
+    transition: color 1s;
+}

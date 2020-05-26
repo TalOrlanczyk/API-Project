@@ -8,7 +8,18 @@ import { TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
 const BASE_URL = 'https://api.exchangeratesapi.io/';
+const dateBorderClasses = {
+    classes: {
+        underline: 'date-border-color',
+        input: 'date-input-color'
+    },
+}
 
+const dateLabelClass = {
+    classes: {
+        root: 'date-label-color',
+    },
+}
 const CoverterTable = () => {
     const [currencyOptions, setCurrencyOptions] = useState([])
     const [latestRate, setLatestRate] = useState({});
@@ -112,6 +123,8 @@ const CoverterTable = () => {
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                     <DatePicker
                         disableFuture
+                        InputLabelProps={dateLabelClass}
+                        InputProps={dateBorderClasses}
                         label="Responsive"
                         views={["year", "month", "date"]}
                         value={selectedDate}
@@ -119,7 +132,7 @@ const CoverterTable = () => {
                         format="dd/MM/yyyy"
                     />
                 </MuiPickersUtilsProvider>
-                <SearchIcon onClick={(e) => handleStuff(e)} />
+                <SearchIcon className={"date-search"} onClick={(e) => handleStuff(e)} />
             </div>
             <div className="table">
                 <table className="tableCovertor">
