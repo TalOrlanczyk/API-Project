@@ -10,7 +10,7 @@ const PokimonLink = () => {
                 </div>
 
             <div className="converter-link-padd">
-                <Link to="/Converter" className="poxedex-link">
+                <Link to="/poke" className="poxedex-link">
 
                     Poxedec
                 </Link>

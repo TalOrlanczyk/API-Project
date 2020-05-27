@@ -1,0 +1,6 @@
+.tableHeader{
+    background-color: var(--table-header);
+    transition: background-color 1s;
+    color: white;
+
+}

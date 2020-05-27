@@ -3,10 +3,9 @@ import './CoverterAmount.css';
 import CurrencyRow from '../CurrencyRow/CurrencyRow';
 import Loading from '../../Loading/Loading'
 const BASE_URL = 'https://api.exchangeratesapi.io/latest';
-const CoverterAmount = () => {
-    const [currencyOptions, setCurrencyOptions] = useState([])
-    const [fromCurrency, setFromCurrency] = useState()
-    const [toCurrency, setToCurrency] = useState()
+const CoverterAmount = ({ currencyOptions }) => {
+    const [fromCurrency, setFromCurrency] = useState(currencyOptions[0])
+    const [toCurrency, setToCurrency] = useState(currencyOptions[1])
     const [exchangeRate, setExchangeRate] = useState()
     const [amount, setAmount] = useState(1)
     const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
@@ -24,10 +23,9 @@ const CoverterAmount = () => {
         fetch(BASE_URL)
             .then(res => res.json())
             .then(data => {
-                const firstCurrency = Object.keys(data.rates)[0]
-                setCurrencyOptions([data.base, ...Object.keys(data.rates)])
-                setFromCurrency(data.base)
-                setToCurrency(firstCurrency)
+                let firstCurrency = Object.keys(data.rates)[0]
+                // setFromCurrency(data.base)
+                // setToCurrency(firstCurrency)
                 setExchangeRate(data.rates[firstCurrency])
             })
     }, [])
@@ -44,21 +42,22 @@ const CoverterAmount = () => {
     const handleFromAmountChange = useCallback((e) => {
         setAmount(e.target.value)
         setAmountInFromCurrency(true)
-    },[])
+    }, [])
 
     const handleToAmountChange = useCallback((e) => {
         setAmount(e.target.value)
         setAmountInFromCurrency(false)
-    },[])
-    if ( fromCurrency == null || toCurrency == null || currencyOptions == null || fromAmount == null || exchangeRate == null)
-    return <Loading/>
-    return ( 
+    }, [])
+    //slide-in-bck-center
+    if (fromCurrency == null || toCurrency == null || currencyOptions == null || fromAmount == null || exchangeRate == null)
+        return <Loading />
+    return (
             <div className="coverter-main">
                 <CurrencyRow
                     currencyOptions={currencyOptions}
                     selectedCurrency={fromCurrency}
                     onChangeCurrency={(e) => setFromCurrency(e)}
-                    onChangeAmount={(e) =>handleFromAmountChange(e)}
+                    onChangeAmount={(e) => handleFromAmountChange(e)}
                     amount={fromAmount}
                     compereCurreny={toCurrency}
                 />
@@ -67,11 +66,12 @@ const CoverterAmount = () => {
                     currencyOptions={currencyOptions}
                     selectedCurrency={toCurrency}
                     onChangeCurrency={(e) => setToCurrency(e)}
-                    onChangeAmount={(e) =>handleToAmountChange(e)}
+                    onChangeAmount={(e) => handleToAmountChange(e)}
                     amount={toAmount}
                     compereCurreny={fromCurrency}
                 />
             </div>
+           
     )
 }
 export default CoverterAmount;

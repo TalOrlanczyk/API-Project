@@ -1,0 +1,98 @@
+@media only screen and (max-width: 960px) {
+
+    .scale-in-center {
+        animation: scale-in-center 3s ease-out both;
+        border-radius: 6px 6px 0 0;
+        width: 50vw;
+        height: 40vh;
+        background-color: var(--card-background);
+        margin: 4vh 0 4vh 0;
+        text-align: center;
+        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+                    0px 1px 1px 0px rgba(0,0,0,0.14), 
+                    0px 1px 3px 0px rgba(0,0,0,0.12);
+    
+    }
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+
+    .scale-in-center {
+        animation: scale-in-center 3s ease-out both;
+        border-radius: 6px 6px 0 0;
+        width: 50vw;
+        height: 40vh;
+        background-color: var(--card-background);
+        margin: 4vh 0 4vh 0;
+        text-align: center;
+        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+                    0px 1px 1px 0px rgba(0,0,0,0.14), 
+                    0px 1px 3px 0px rgba(0,0,0,0.12);
+    
+    }
+}
+@media only screen and (max-width: 430px) {
+
+    .scale-in-center {
+        animation: scale-in-center 3s ease-out both;
+        border-radius: 6px 6px 0 0;
+        width: 80vw;
+        height: 35vh;
+        background-color: var(--card-background);
+        margin: 2vh 0 10vh 0;
+        text-align: center;
+        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+                    0px 1px 1px 0px rgba(0,0,0,0.14), 
+                    0px 1px 3px 0px rgba(0,0,0,0.12);
+    
+    }
+}
+.chartline{
+    
+    background-color: var(--card-background);
+    border-radius: 0 0 6px 6px;
+}
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.coinGraph-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roll-out-left {
+    animation: roll-out-left 0.6s ease-in both;
+    border-radius: 4px;
+    width: 35vw;
+    height: 35vh;
+    background-color: #756d6d;
+    margin: 4vh 0 4vh 0;
+    text-align: center;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+                0px 1px 1px 0px rgba(0,0,0,0.14), 
+                0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+@keyframes roll-out-left {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-1000px) rotate(-540deg);
+        opacity: 0;
+    }
+}
+.left-exit{
+    float: right;
+    background-color: transparent;
+    border: 0;
+    color: rgb(223, 222, 222);
+}

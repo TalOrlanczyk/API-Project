@@ -1,0 +1,28 @@
+.NavigatorMobile-warrper{
+    --navbar-height:5vh;
+    background-color: rgb(155, 155, 155);
+    position: fixed;
+    height: var(--navbar-height);
+    width: 100vw;
+    bottom: 0;
+}
+
+.home-link {
+    border-radius: 8px;
+    text-decoration: var(--link-no-decoration);
+    width: 10vh;
+    display: var(--display-link-as-button);
+    height:var(--navbar-height);
+    background:transparent;
+    padding: 0;
+    text-align: center;
+    border-radius: var(--link-border-radius);
+    color: var(--link-text-color);
+    font-weight: bold;
+}
+.home-link-icon{
+    vertical-align: -webkit-baseline-middle;
+}
+.icon-warrper{
+    height: var(--navbar-height);
+}

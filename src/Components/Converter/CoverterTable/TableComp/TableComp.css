@@ -1,0 +1,30 @@
+@media only screen and (max-width: 960px) {
+
+    .tableCovertor {
+        margin-bottom: 1vh;
+        width: 75vw;
+        overflow: hidden;
+        border-radius: 1vh;
+        border-collapse: collapse;
+    }
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+
+    .tableCovertor {
+        margin-bottom: 1vh;
+        width: 60vw;
+        overflow: hidden;
+        border-radius: 1vh;
+        border-collapse: collapse;
+    }
+}
+@media only screen and (max-width: 430px) {
+
+    .tableCovertor {
+        margin-bottom: 1vh;
+        width: 75vw;
+        overflow: hidden;
+        border-radius: 1vh;
+        border-collapse: collapse;
+    }
+}

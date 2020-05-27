@@ -4,7 +4,7 @@ import './CurrencyRow.css';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
 
-const CurrencyRow = ({currencyOptions,selectedCurrency,onChangeCurrency,onChangeAmount,amount,compereCurreny}) => {
+const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onChangeAmount, amount, compereCurreny }) => {
     const [open, setOpen] = useState(false);
     const [pickedCoin] = useState("");
     const wrapperRef = useRef(null);
@@ -21,15 +21,12 @@ const CurrencyRow = ({currencyOptions,selectedCurrency,onChangeCurrency,onChange
                 <input id="color-input" type="hidden" name="coloris_panneau" value={pickedCoin} />
                 <div className="color-value list-item">{selectedCurrency}<ArrowDownwardIcon className={open === true ? "arrowdown upside" : "arrowdown"} /></div>
                 <ul className="list" ref={open === true ? wrapperRef : null} >
-
                     {currencyOptions
                         .filter(currency => currency !== compereCurreny)
                         .map((option) =>
                             <li key={option} className={selectedCurrency === option ? "list-item picked" : "list-item"} onClick={(e) => onChangeCurrency(option)}>
-
                                 <span>{option}</span>
                             </li>
-
                         )
                     }
                 </ul>

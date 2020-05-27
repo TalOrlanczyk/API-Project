@@ -1,3 +1,4 @@
+
 .positive {
     color: var(--positive2);
     transition: color 1s;
@@ -15,22 +16,6 @@
     display: flex;
     justify-content: center;
     margin-top: 3vh;
-}
-
-
-.tableCovertor {
-    margin-bottom: 1vh;
-    width: 50vh;
-    overflow: hidden;
-    border-radius: 1vh;
-    border-collapse: collapse;
-}
-
-.tableHeader{
-    background-color: var(--table-header);
-    transition: background-color 1s;
-    color: white;
-
 }
 
 .tableBody{
@@ -53,7 +38,10 @@
     transition: border-bottom 1s;
 }
 .date-border-color:hover::before {
-    border-bottom : 1.2px solid var(--date-color) !important ;
+    border-bottom : 2px solid var(--date-color) !important ;
+}
+.date-border-color::after {
+    border-bottom : 2px solid var(--date-color) !important ;
 }
 
 .date-label-color{
@@ -69,3 +57,43 @@
     color: var(--date-color) !important;
     transition: color 1s;
 }
+.event-color{
+    color: var(--event-color);
+    transition: color 1s;
+}
+.button-class{
+    background-color: transparent;
+    transition: background-color 1s;
+    color: rgba(0, 0, 0, 0.87);
+    width: 56px;
+    height: 56px;
+    outline: 0;
+    box-shadow: var(--shadow-1),
+                var(--shadow-2),
+                var(--shadow-5);
+    border:0;
+    
+}
+
+
+.slide-in-bck-center-table {
+	animation: slide-in-bck-center 1.2s ;
+}
+
+@keyframes slide-in-bck-center {
+    0% {
+    
+        transform: translateZ(600px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+  }
+
+
+  .disabled{
+      color: gray;
+      transition: color 1s;
+  }
