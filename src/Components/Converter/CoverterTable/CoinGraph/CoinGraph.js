@@ -32,11 +32,22 @@ const data = {
 const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
     const [ChartData, setChartData] = useState(data)
     const [close, setClose] = useState(false);
+    const [GraphTheme,setGraphTheme] = useState({})
     const calcMonth = (month) => {
         if (month >= 10) return month
         return "0" + month;
     }
     useEffect(() => {
+        if (navigator.userAgent.match(/Android/i)
+            || navigator.userAgent.match(/webOS/i)
+            || navigator.userAgent.match(/iPhone/i)
+            || navigator.userAgent.match(/iPad/i)
+            || navigator.userAgent.match(/iPod/i)
+            || navigator.userAgent.match(/BlackBerry/i)
+            || navigator.userAgent.match(/Windows Phone/i))
+            setGraphTheme({ width: "80vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" });
+        else
+        setGraphTheme({ width: "50vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" });
         var element = document.getElementById("test");
 
         element.scrollIntoView({ behavior: 'smooth' });
@@ -51,12 +62,13 @@ const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
                 let Dataset = [...ChartData.datasets][0];
                 let datas = [];
                 Dataset.data = Object.values(data.rates);
+                const labels = Object.keys(data.rates).sort();
                 for (let i = 0; i < Object.values(data.rates).length; i++) {
-                    datas.push(Object.values(data.rates)[i].ILS);
+                    datas.push(data.rates[labels[i]].ILS);
                 }
                 Dataset.data = datas;
                 setChartData({ ...ChartData, datasets: [Dataset] })
-                setChartData({ ...ChartData, labels: Object.keys(data.rates) })
+                setChartData({ ...ChartData, labels: labels })
             })
     }, [pickData]);
 
@@ -74,7 +86,7 @@ const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
                     <Close />
                 </button>
                 {ChartData.labels.length > 0 ?
-                    <div className="chartline" style={{width:"50vw",height:"40vh"}}>
+                    <div className="chartline" style={GraphTheme}>
 
                         <Line
                             data={ChartData}
@@ -99,7 +111,7 @@ const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
                                         ticks: {
                                             fontColor: "black",
                                             fontSize: 14,
-                                            stepSize: 0.5,
+                                            stepSize: 0.005,
                                             // beginAtZero: true
                                         }
                                     }],

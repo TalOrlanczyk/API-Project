@@ -1,12 +1,27 @@
 .NavigatorMobile-warrper{
     --navbar-height:5vh;
-    background-color: rgb(155, 155, 155);
+    background-color: var(--navbar-mobile-background);
     position: fixed;
     height: var(--navbar-height);
     width: 100vw;
     bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
-
+.all-apps{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-right: 1vh;
+    border-radius: 12px;
+    width: 34vw;
+    height: 14vh;
+    position: absolute;
+    bottom: 41px;
+    right: 3px;
+    background: var(--popover-color);
+}
 .home-link {
     border-radius: 8px;
     text-decoration: var(--link-no-decoration);
@@ -25,4 +40,12 @@
 }
 .icon-warrper{
     height: var(--navbar-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.middle-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

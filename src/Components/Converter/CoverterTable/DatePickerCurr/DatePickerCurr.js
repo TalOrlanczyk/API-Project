@@ -28,9 +28,9 @@ const dateLabelClass = {
 const DatePickerCurr = ({handleStuff}) => {
     const [selectedDate, handleDateChange] = useState(new Date());
     const isGetToTheSearchLimit = () => {
-        if (selectedDate.getFullYear() >= 2011 && selectedDate.getMonth() >= 0 && selectedDate.getDate() > 3)
-            return true;
-        return false;
+        if ((selectedDate.getFullYear() <= 2011 && selectedDate.getMonth() === 0 && selectedDate.getDate() <= 3))
+            return false;
+        return true;
     }
     return (
         <>

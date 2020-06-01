@@ -1,0 +1,164 @@
+@media only screen and (max-width: 960px) {
+
+    .badge{
+        width: 5vw;
+        height: 5vh;
+    }
+    .CountDown-card {
+        width: 50vw;
+        height: 20vh;
+    }
+    .inner{
+        width: 27vw;
+        clip-path: circle(4% at 90% 20%);
+    }
+    .container-info {
+        /* width: 0vw; */
+        height: 5vh;
+    }
+    .container-info:hover{
+        height: 23vh;
+    }
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+
+    .badge{
+        width: 3vw;
+        height: 5vh;
+    }
+    .CountDown-card {
+        width: 50vw;
+        height: 60vh;
+    }
+    .CountDown-card.Large{
+        height: 60vh;
+        transition: height 1s;
+
+    }
+    .inner{
+        width: 27vw;
+        clip-path: circle(4% at 90% 20%);
+    }
+    .container-info {
+        height: 5vh;
+    }
+    .container-info:hover{
+        height: 23vh;
+    }
+}
+@media only screen and (max-width: 430px) {
+
+    .badge{
+        width: 10vw;
+        height: 5vh;
+    }
+    .CountDown-card {
+        width: 80vw;
+        height: 30vh;
+    }
+    .inner{
+        width: 90vw;
+        clip-path: circle(4% at 88% 19%);
+    }
+    .container-info {
+        height: 5vh;
+    }
+    .container-info:hover{
+        height: 30vh;
+    }
+}
+.CountDown-card{
+    position: relative;
+    background: var(--card-background);
+        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),
+                    0px 1px 1px 0px rgba(0,0,0,0.14), 
+                    0px 1px 3px 0px rgba(0,0,0,0.12);
+        border-radius: 8px;
+}
+.CountDown-warrper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+}
+.span-warrper {
+    text-align: center;
+    font-size: 3vh;
+}
+.data-of-mission{
+    margin-left: 1vh;
+}
+.CountDown-span,.data-of-mission,.Location-Icon,.title{
+    color:var(--link-text-color);
+}
+.grid-badges{
+    width: 100%;
+    height: 10vh;
+    display: grid;
+    grid-template-areas: "MissionName MissionName Badge"
+                        "FlightNumber FlightNumber Badge";
+}
+.MissionName{
+    grid-area: MissionName;
+}
+.FlightNumber{
+    grid-area: FlightNumber;
+}
+
+.badge-flex{
+    grid-area: Badge;
+    padding: 1vh;
+    justify-content: flex-end;
+    display: flex;
+}
+.inner {
+    background: rgb(9, 201, 153);
+    padding: 1em;
+    border-radius: 10px;
+    /* width: 27vw;
+    clip-path: circle(4% at 90% 20%); */
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+.inner:hover {
+    clip-path: circle(75%);
+    background: #00B6FF;
+}
+
+.inner .info-header {
+    color: white;
+    margin: 0;
+}
+
+.inner .info-paragraph{
+    color: white;
+    font-size: .8rem;
+}
+.inner .info-icon{
+    float: right;
+    color: white;
+    font-weight: bold;
+    transition: color .5s;
+    position: relative;
+    margin-right: 5%;
+    margin-top: 3.5%;
+    }
+.inner:hover .info-icon{
+    color: rgba(255,255,255,0);
+    opacity: 0;
+}
+.container-info {
+    /* width: 0vw;
+    height: 5vh; */
+    transition: height 1s;
+}
+.container-info:hover{
+    /* height: 23vh; */
+    transition: height 1s;
+}
+
+.warrper-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

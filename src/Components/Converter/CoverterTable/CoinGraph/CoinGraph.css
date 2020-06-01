@@ -63,6 +63,7 @@
 }
 
 .coinGraph-container{
+    margin: 0 0 10vh 0;
     display: flex;
     justify-content: center;
     align-items: center;

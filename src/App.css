@@ -90,6 +90,11 @@ html, body {
     --shadow-5:  rgba(0, 0, 0, 0.5);
     --shadow-05:  rgba(0, 0, 0, 0.5);
     --shadow-inset:  rgba(255, 255, 255, 0.5);
+    --text-shadow-1: 0 0 30px rgba(88, 86, 86, 0.589);
+    --text-shadpw-2:rgba(88, 86, 86, 0.589), 0 0 60px rgba(88, 86, 86, 0.2);
+    --text-shadow-3:0 0 30px rgba(88, 86, 86, 0.6), 0 0 60px rgba(88, 86, 86, 0.4);
+    --text-shadow-4: 0 0 30px rgba(88, 86, 86, 0.6), 0 0 60px rgba(88, 86, 86, 0.4), 0 0 100px rgba(88, 86, 86, 0.1);
+    --text-shadow-5: 0 0 30px rgba(88, 86, 86, 0.6), 0 0 60px rgba(88, 86, 86, 0.4), 0 0 110px rgba(88, 86, 86, 0.2), 0 0 100px rgba(88, 86, 86, 0.1);
     --surface-background:  #FFFFFF;
     --text-highlight:  rgba(24, 119, 242, 0.2);
     --toggle-active-background:  #E7F3FF;
@@ -126,6 +131,10 @@ html, body {
     --date-color-input: black;
     --event-color: black;
     --card-background: #e8e4e4;
+    --not-found-color: rgb(131, 131, 131);
+    --fill-background:hsl(220, 85%, 65%);
+    --navbar-mobile-background : rgb(155, 155, 155);
+    --popover-color:#cccccc;
   }
 
 .darkmode:root, .darkmode {
@@ -151,6 +160,11 @@ html, body {
     --placeholder-text-on-media:  rgba(255, 255, 255, 0.5);
     --popover-background:  #3E4042;
     --positive:  #31A24C;
+    --text-shadow-1:  0 0 30px rgba(255, 255, 255, 0.25);
+    --text-shadpw-2:0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    --text-shadow-3:0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35);
+    --text-shadow-4: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
+    --text-shadow-5:0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
     /* --positive2: #31A24C; */
     --positive2: #81c784;
     --positive-background:  #1F3520;
@@ -219,4 +233,8 @@ html, body {
     --grahp-color:#b9bfff;
     --text-color: #bbb9b9;
     --card-background: #756d6d;
+    --not-found-color: #fff;
+    --fill-background:hsl(220, 100%, 82%);
+    --navbar-mobile-background : rgb(36, 37, 38);
+    --popover-color: #545252;
 }

@@ -6,10 +6,11 @@ import Converter from './Components/Converter/Converter';
 import MainPage from './Components/MainPage/MainPage';
 import NotFound from './Components/NotFound/NotFound';
 import NavigatorMobile from './Components/Header/NavigatorMobile/NavigatorMobile';
-
+import Spacex from './Components/Spacex/Spacex';
 const App = () => {
   const [isMobile,setIsMobile] = useState(false)
   useEffect(() => {
+    console.log(process.env.REACT_APP_CLIENT_ID); 
     if (navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
       || navigator.userAgent.match(/iPhone/i)
@@ -27,6 +28,7 @@ const App = () => {
         {/* <Switch location = { location }> */}
         <Route exact path='/' component={MainPage} />
         <Route exact path='/Converter/' component={Converter} />
+        <Route exact path ='/SpaceX/' component={Spacex}/>
         <Route component={NotFound} />
       </Switch>
       {/* )} /> */}
