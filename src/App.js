@@ -10,7 +10,6 @@ import Spacex from './Components/Spacex/Spacex';
 const App = () => {
   const [isMobile,setIsMobile] = useState(false)
   useEffect(() => {
-    console.log(process.env.REACT_APP_CLIENT_ID); 
     if (navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
       || navigator.userAgent.match(/iPhone/i)
