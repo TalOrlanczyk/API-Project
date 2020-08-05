@@ -5,7 +5,7 @@ const CountDownClock = ({ upComingLaunches }) => {
     const [CountDown, setCountDown] = useState("");
     const CountDownLaunches = (launches = upComingLaunches) => {
         if (launches.length > 0) {
-            let nextLunc = new Date(launches[0].launch_date_local);
+            let nextLunc = new Date(launches[0].date_local);
             let launche = Date.parse(nextLunc) - Date.parse(new Date());
             let seconds = Math.floor((launche / 1000) % 60);
             let minutes = Math.floor((launche / 1000 / 60) % 60);

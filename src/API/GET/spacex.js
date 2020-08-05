@@ -1,4 +1,4 @@
-import { SpaceXBaseUrl } from "../../Utils/ConstValues";
+import { SpaceXBaseUrlLaunches } from "../../Utils/ConstValues";
 
 
 const get = async (url) => (
@@ -7,4 +7,4 @@ const get = async (url) => (
         .then(json =>  json
         )
 )
-export const SpaceXUpcomingLaunches = () => get(`${SpaceXBaseUrl}launches/upcoming`);
+export const SpaceXUpcomingLaunches = () => get(`${SpaceXBaseUrlLaunches}/upcoming`);

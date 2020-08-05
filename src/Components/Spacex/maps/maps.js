@@ -26,7 +26,6 @@ const GoogleMap = ({ openMap, open, placeName }) => {
     }
     useEffect(() => {
         const googleMapScript = document.createElement('script')
-        const ddd = process.env.REACT_APP_API_KEY;
         googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}&libraries=places`
         window.document.body.appendChild(googleMapScript)
         googleMapScript.addEventListener('load', () => {
