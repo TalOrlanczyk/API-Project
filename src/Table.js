@@ -11,6 +11,7 @@ import CoinGraph from './CoinGraph/CoinGraph';
 import ErrorOutline from '@material-ui/icons/ErrorOutline';
 import ErrorSnackbar from '../../Snackbars/ErrorSnackbar/ErrorSnackbar';
 import useCurrecny from '../../customHooks/customeHooks';
+import { TodayExchangeRate, TodatExchangeRateBySymbol, ExchangeByDataAndOption } from './API/GET/exchange';
 
 const BASE_URL = 'https://api.exchangeratesapi.io/';
 const dateBorderClasses = {
@@ -45,8 +46,7 @@ const CoverterTable = ({currencyOptions}) => {
         window.scrollTo(0, document.body.scrollHeight + 300);
     }
     useEffect(() => {
-        fetch(`${BASE_URL}latest`)
-            .then(res => res.json())
+        TodayExchangeRate()
             .then(data => {
                 let latestDate = data.date
                 let DateOfYesterday = new Date(latestDate);
@@ -57,9 +57,8 @@ const CoverterTable = ({currencyOptions}) => {
                 const allCoins = data.rates;
                 allCoins[data.base] = ""
                 setCoinLength(Object.keys(allCoins).length);
-                Object.keys(allCoins).map(async (options) => {
-                    await fetch(`${BASE_URL}latest?symbols=ILS&base=${options}`)
-                        .then(response => response.json())
+                Object.keys(allCoins).map((options) => {
+                    TodatExchangeRateBySymbol(options)
                         .then(data => {
                             const bases = data.base;
                             const tempRate = latestRate;
@@ -69,8 +68,7 @@ const CoverterTable = ({currencyOptions}) => {
                 })
                 const DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + (DateOfYesterday.getDate() - 1);
                 Object.keys(allCoins).map(async (options) => {
-                    await fetch(`${BASE_URL}${DateBeforeLates}?symbols=ILS&base=${options}`)
-                        .then(response => response.json())
+                    ExchangeByDataAndOption(DateBeforeLates, options)
                         .then(data => {
                             const bases = data.base;
                             const tempRate = yesterdayRate;

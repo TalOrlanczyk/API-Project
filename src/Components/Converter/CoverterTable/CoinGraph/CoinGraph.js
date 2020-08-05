@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Close from '@material-ui/icons/Close';
 import './CoinGraph.css';
 import { Bar, Line } from 'react-chartjs-2';
+import { ExchangeHistory } from '../../../../API/GET/exchange';
 const BASE_URL = 'https://api.exchangeratesapi.io/';
 const data = {
     labels: "",
@@ -54,9 +55,9 @@ const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
     }, []);
     useEffect(() => {
         let DateOfYesterday = new Date(latestDate);
-        let DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + (DateOfYesterday.getDate() - 7);
-        fetch(`${BASE_URL}history?start_at=${DateBeforeLates}&end_at=${latestDate}&symbols=ILS&base=${pickData}`)
-            .then(response => response.json())
+        DateOfYesterday.setDate(DateOfYesterday.getDate()-7)
+        let DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate());
+        ExchangeHistory(DateBeforeLates,latestDate,pickData)
             .then(data => {
                 console.table(data);
                 let Dataset = [...ChartData.datasets][0];

@@ -2,6 +2,6 @@
     background-color: var(--nav-bar-background);
     transition: background-color 1s;
     display: grid;
-    grid-template-columns: 0.1fr 1fr 1fr;
+    grid-template-columns: 0.3fr 1fr 1fr;
     height: 8vh;
 }

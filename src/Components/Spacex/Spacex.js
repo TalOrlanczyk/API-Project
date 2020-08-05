@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Spacex.css';
 import GoogleMap from './maps/maps';
 import CountDownClock from './CountDownClock/CountDownClock';
+import { SpaceXUpcomingLaunches } from '../../API/GET/spacex';
 const Spacex = () => {
-    const [open,setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
     const [upComingLaunches, setUpComingLaunches] = useState([]);
     useEffect(() => {
         ;
-        fetch('https://api.spacexdata.com/v3/launches/upcoming')
-            .then(res => res.json())
+        SpaceXUpcomingLaunches()
             .then(data => {
                 setUpComingLaunches(data)
             })
@@ -42,9 +42,10 @@ const Spacex = () => {
                         </div>
                         <CountDownClock upComingLaunches={upComingLaunches} />
                         <GoogleMap
-                            openMap={(e)=> setOpen(true)}
+                            openMap={(e) => setOpen(true)}
                             open={open}
                             placeName={upComingLaunches[0].launch_site.site_name} />
+
                     </div>
                     : null}
             </div>

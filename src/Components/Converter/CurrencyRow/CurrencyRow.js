@@ -3,6 +3,8 @@ import React, { useState, useRef } from 'react';
 import './CurrencyRow.css';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
+import ListItems from '../../../Containers/ListItems/ListItems';
+import ListItem from '../../../Containers/ListItem/ListItem';
 
 const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onChangeAmount, amount, compereCurreny }) => {
     const [open, setOpen] = useState(false);
@@ -15,22 +17,20 @@ const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onCh
     });
     return (
         <div className="Currecy">
-            <div className={open === true ? "color-picker open" : "color-picker"} onClick={(e) => {
-                setOpen(!open)
-            }} >
+            <ListItems open={open} setOpen={(e)=>setOpen(!open)}>
                 <input id="color-input" type="hidden" name="coloris_panneau" value={pickedCoin} />
                 <div className="color-value list-item">{selectedCurrency}<ArrowDownwardIcon className={open === true ? "arrowdown upside" : "arrowdown"} /></div>
                 <ul className="list" ref={open === true ? wrapperRef : null} >
                     {currencyOptions
                         .filter(currency => currency !== compereCurreny)
                         .map((option) =>
-                            <li key={option} className={selectedCurrency === option ? "list-item picked" : "list-item"} onClick={(e) => onChangeCurrency(option)}>
+                            <ListItem key={option} option={option}  selectedCurrency={selectedCurrency}  onChangeCurrency={(e) => onChangeCurrency(option)}>
                                 <span>{option}</span>
-                            </li>
+                            </ListItem>
                         )
                     }
                 </ul>
-            </div>
+                </ListItems>
             <input type="number" className="money-conver" value={amount} onChange={onChangeAmount} />
         </div>
     )

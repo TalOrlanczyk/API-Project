@@ -3,6 +3,7 @@ import './CoverterTable.css';
 import Loading from '../../Loading/Loading';
 import DatePickerCurr from './DatePickerCurr/DatePickerCurr';
 import TableComp from './TableComp/TableComp';
+import { TodayExchangeRate, TodatExchangeRateBySymbol, ExchangeByDataAndOption } from '../../../API/GET/exchange';
 
 const BASE_URL = 'https://api.exchangeratesapi.io/';
 
@@ -13,8 +14,7 @@ const CoverterTable = ({ currencyOptions }) => {
     const [yesterdayRate, setYesterdayRate] = useState({});
     const [coinLength] = useState(currencyOptions.length);
     useEffect(() => {
-        fetch(`${BASE_URL}latest`)
-            .then(res => res.json())
+        TodayExchangeRate()
             .then(data => {
                 let latestDate = data.date
                 let DateOfYesterday = new Date(latestDate);
@@ -25,9 +25,8 @@ const CoverterTable = ({ currencyOptions }) => {
                 const allCoins = data.rates;
                 allCoins[data.base] = ""
                 setLatestDate(data.date);
-                Object.keys(allCoins).map(async (options) => {
-                    await fetch(`${BASE_URL}latest?symbols=ILS&base=${options}`)
-                        .then(response => response.json())
+                Object.keys(allCoins).map((options) => {
+                    TodatExchangeRateBySymbol(options)
                         .then(data => {
                             const bases = data.base;
                             const tempRate = latestRate;
@@ -35,10 +34,9 @@ const CoverterTable = ({ currencyOptions }) => {
                             setLatestRate({ ...latestRate, ...tempRate[bases] })
                         })
                 })
-                const DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + (DateOfYesterday.getDate() - 1);
-                Object.keys(allCoins).map(async (options) => {
-                    await fetch(`${BASE_URL}${DateBeforeLates}?symbols=ILS&base=${options}`)
-                        .then(response => response.json())
+                const DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate() - 1);
+                Object.keys(allCoins).map((options) => {
+                    ExchangeByDataAndOption(DateBeforeLates, options)
                         .then(data => {
                             const bases = data.base;
                             const tempRate = yesterdayRate;
@@ -59,22 +57,20 @@ const CoverterTable = ({ currencyOptions }) => {
             if (month >= 10) return month
             return "0" + month;
         }
-        const DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + (DateOfYesterday.getDate() - 1);
-        const DatePicked = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + (DateOfYesterday.getDate());
+        const DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate() - 1);
+        const DatePicked = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate());
         clearState();
         currencyOptions
             .filter(currecy => currecy !== "ILS")
             .map((option) => {
-                fetch(`${BASE_URL}${DatePicked}?symbols=ILS&base=${option}`)
-                    .then(response => response.json())
+                ExchangeByDataAndOption(DatePicked, option)
                     .then(data => {
                         const bases = data.base;
                         const tempRate = latestRate;
                         tempRate[bases] = Object.entries(data.rates)[0][1]
                         setLatestRate({ ...latestRate, ...tempRate[bases] })
                     })
-                fetch(`${BASE_URL}${DateBeforeLates}?symbols=ILS&base=${option}`)
-                    .then(response => response.json())
+                    ExchangeByDataAndOption(DateBeforeLates, option)
                     .then(data => {
                         const bases = data.base;
                         const tempRate = yesterdayRate;

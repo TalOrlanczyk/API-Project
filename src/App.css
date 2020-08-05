@@ -74,7 +74,7 @@ html, body {
 }
 :root {
     --hover-overlay:  rgba(78, 156, 175, 0.51);
-    --nav-bar-background:  #FFFFFF;
+    --nav-bar-background:  #c3c3c3;
     --nav-bar-background-gradient:  linear-gradient(to top, #FFFFFF, rgb(255, 255, 255), rgba(255,255,255,0.7), rgba(255,255,255,0.4), rgba(255,255,255,0));
     --negative:  hsl(350, 87%, 55%);
     --negative2: hsl(350, 100%, 31%);

@@ -1,0 +1,12 @@
+.colorPicker {
+    height: 30px;
+    width: 150px;
+    overflow: hidden;
+    margin-bottom: 1vh;
+    color: var(--color-text);
+    background-color: var(--background-list);
+    transition: background-color 1s, color 1s;
+}
+.open {
+    overflow: visible;
+}

@@ -36,3 +36,26 @@
 .Icon-root #red{
     fill: rgb(238, 43, 91);
 }
+.rsr{
+    height: 100%;
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+    .TextSvg{
+        font-size: 3vw;
+        font-family: cursive;
+    }
+    
+}
+@media only screen and (max-width: 960px) {
+    .TextSvg{
+        font-size: 6vw;
+        font-family: cursive;
+    }   
+}
+@media only screen and (max-width: 430px) {
+
+    .TextSvg{
+        font-size: 15vw;
+        font-family: cursive;
+    }
+}

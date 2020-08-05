@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './CoverterAmount.css';
 import CurrencyRow from '../CurrencyRow/CurrencyRow';
 import Loading from '../../Loading/Loading'
+import { TodayExchangeRate, TodayExchangeRateByBaseAndSymbol } from '../../../API/GET/exchange';
 const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 const CoverterAmount = ({ currencyOptions }) => {
     const [fromCurrency, setFromCurrency] = useState(currencyOptions[0])
@@ -20,8 +21,7 @@ const CoverterAmount = ({ currencyOptions }) => {
     }
 
     useEffect(() => {
-        fetch(BASE_URL)
-            .then(res => res.json())
+       TodayExchangeRate()
             .then(data => {
                 let firstCurrency = Object.keys(data.rates)[0]
                 // setFromCurrency(data.base)
@@ -32,8 +32,7 @@ const CoverterAmount = ({ currencyOptions }) => {
 
     useEffect(() => {
         if (fromCurrency != null && toCurrency != null) {
-            fetch(`${BASE_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
-                .then(res => res.json())
+            TodayExchangeRateByBaseAndSymbol(fromCurrency,toCurrency)
                 .then(data => setExchangeRate(data.rates[toCurrency]))
         }
     }, [fromCurrency, toCurrency])

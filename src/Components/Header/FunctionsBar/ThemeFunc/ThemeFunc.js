@@ -42,14 +42,14 @@ const ThemeFunc = () => {
     return (
         <div className="ThemeFunc-flex">
             {theme === "lightmode" ?
-                <button className="fab-class" onClick={(e) => darktheme(e)}>
-                    <span className="middle">
+                <button className="fab-class" aria-label="Center Align" onClick={(e) => darktheme(e)}>
+                    <span className="middle" aria-hidden="true">
                         < Brightness4Icon className="ThemeFunc-icon" />
                     </span>
                 </button>
                 :
-                <button className="fab-class" onClick={(e) => lightmode(e)}>
-                    <span className="middle">
+                <button className="fab-class" aria-label="Center Align" onClick={(e) => lightmode(e)}>
+                    <span className="middle" aria-hidden="true">
                         < Brightness7Icon className="ThemeFunc-icon" />
                     </span>
                 </button>
