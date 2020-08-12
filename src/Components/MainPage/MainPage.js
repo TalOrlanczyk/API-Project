@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainPage.css';
 import CovertLink from './CovertLink/CovertLink';
-import PokimonLink from './PokimonLink/PokimonLink';
+import PokimonLink from './PokemonLink/PokemonLink';
 
 const MainPage = () => {
     return (

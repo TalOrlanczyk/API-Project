@@ -1,8 +1,8 @@
 import React from 'react';
-import './PokimonLink.css';
+import './PokemonLink.css';
 import { Link } from 'react-router-dom';
 
-const PokimonLink = () => {
+const PokemonLink = () => {
     return (
         <div className="poxedex">
                 <div className="pokeball">
@@ -10,7 +10,7 @@ const PokimonLink = () => {
                 </div>
 
             <div className="converter-link-padd">
-                <Link to="/poke" className="poxedex-link">
+                <Link to="/Pokemon" className="poxedex-link">
 
                     Poxedec
                 </Link>
@@ -18,4 +18,4 @@ const PokimonLink = () => {
         </div>
     )
 }
-export default PokimonLink;
+export default PokemonLink;

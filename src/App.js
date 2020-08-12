@@ -7,6 +7,7 @@ import MainPage from './Components/MainPage/MainPage';
 import NotFound from './Components/NotFound/NotFound';
 import NavigatorMobile from './Components/Header/NavigatorMobile/NavigatorMobile';
 import Spacex from './Components/Spacex/Spacex';
+import Pokemon from './Components/Pokemon/Pokemon';
 const App = () => {
   const [isMobile,setIsMobile] = useState(false)
   useEffect(() => {
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path='/' component={MainPage} />
         <Route exact path='/Converter/' component={Converter} />
         <Route exact path ='/SpaceX/' component={Spacex}/>
+        <Route exact path ='/Pokemon/' component={Pokemon}/>
         <Route component={NotFound} />
       </Switch>
       {/* )} /> */}
