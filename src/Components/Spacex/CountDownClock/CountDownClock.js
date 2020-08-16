@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './CountDownClock.module.css'
 import { useInterval } from '../../customHooks/customeHooks';
 
 const CountDownClock = ({ upComingLaunches }) => {
@@ -18,8 +19,8 @@ const CountDownClock = ({ upComingLaunches }) => {
 
     }, 1000);
     return (
-        <div className="span-warrper">
-            <span className="CountDown-span">{CountDown}</span>
+        <div className={styles.spanWarrper}>
+            <span className={styles.CountDownSpan}>{CountDown}</span>
         </div>
     )
 }

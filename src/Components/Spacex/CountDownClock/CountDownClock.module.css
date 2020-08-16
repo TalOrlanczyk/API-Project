@@ -1,0 +1,7 @@
+.CountDownSpan{
+    composes: TextColor from '../../../styles/GlobalStyles.module.css'
+}
+.spanWarrper{
+    composes: TextAlignCenter from '../../../styles/GlobalStyles.module.css';
+    font-size: 3vh;
+}

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import LoadingComp from '../../LoadingComp/LoadingComp';
-import './maps.css'
 import { LoadGoogleMap, OpenGoogleMaps } from '../../../functions/functions';
 import GoogleMapComp from './GoogleMapComp/GoogleMapComp';
 import GoogleMapActions from './GoogleMapActions/GoogleMapActions';

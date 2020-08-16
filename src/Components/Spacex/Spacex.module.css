@@ -9,17 +9,6 @@
         width: 80vw;
         height: 18vh;
     }
-    .inner{
-        width: 27vw;
-        clip-path: circle(4% at 90% 20%);
-    }
-    .containerInfo {
-        /* width: 0vw; */
-        height: 5vh;
-    }
-    .containerInfo:hover{
-        height: 23vh;
-    }
 }
 @media only screen and (min-width:961px)  and (max-width: 1920px) {
 
@@ -30,10 +19,6 @@
     .CountDownCard {
         width: 50vw;
         height: 18vh;
-    }
-    .inner{
-        width: 27vw;
-        clip-path: circle(4% at 90% 20%);
     }
 }
 @media only screen and (max-width: 430px) {
@@ -46,30 +31,20 @@
         width: 80vw;
         height: 30vh;
     }
-    .inner{
-        width: 90vw;
-        clip-path: circle(4% at 88% 19%);
-    }
 }
-.dataOfMission{
-    text-align: center;
+.dataOfMission,.title,.MissionName,.spanWarrper{
+    composes: TextAlignCenter from '../../styles/GlobalStyles.module.css';
 }
 .CountDownWarrper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    composes: FlexCenter from '../../styles/GlobalStyles.module.css';
     margin-top: 5vh;
 }
 .spanWarrper {
-    text-align: center;
     font-size: 3vh;
 }
 
-.CountDownSpan,.LocationIcon,.title,.MissionName{
-    color:var(--link-text-color);
-}
-.title{
-    text-align: center;
+.CountDownSpan,.title,.MissionName{
+    composes: TextColor from '../../styles/GlobalStyles.module.css'
 }
 .gridBadges{
     width: 100%;
@@ -78,7 +53,6 @@
     grid-template: "CountDown Badge"/1fr .1fr;
 }
 .MissionName{
-    text-align: center;
     font-size: 25px;
 }
 .CountDown{

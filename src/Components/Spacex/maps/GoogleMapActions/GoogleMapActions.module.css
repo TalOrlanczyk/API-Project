@@ -1,6 +1,4 @@
 .gridButton{
-    background-color: var(--card-background);
-    /* position: absolute; */
     height: var(--navbar-height);
     width: 100%;
     bottom: 0;
@@ -9,9 +7,6 @@
     justify-items: center;
 }
 .GoToLocation{
-    border: 0;
-    background-color: transparent;
-    bottom: 0;
-    left: 0;
+    composes: TransparentNoneBorderButton from '../../../../styles//GlobalStyles.module.css';
     border-radius: 4px;
 }

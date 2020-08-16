@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './Spacex.css';
 import styles from './Spacex.module.css'
 import GoogleMap from './maps/maps';
 import CountDownClock from './CountDownClock/CountDownClock';
 import { SpaceXNextLaunche } from '../../API/GET/spacex';
 import Youtube from './YouTube/Youtube';
-import { Link } from 'react-router-dom';
 import LoadingComp from '../LoadingComp/LoadingComp';
 import { LaunchPad } from '../../API/POST/spacexPost';
 import Card from '../../Containers/Card/Card';
@@ -33,16 +31,15 @@ const Spacex = () => {
     return (
         <div>
             <div className="upcoming-launches">
-                <h1 className="title">upcoming launche</h1>
-                <div className="CountDown-warrper">
+                <h1 className={styles.title}>upcoming launche</h1>
+                <div className={styles.CountDownWarrper}>
                     {Object.keys(upComingLaunches).length > 0 ?
-                        <Card className='CountDown-card'>
-                            <div className="MissionName">{upComingLaunches.name}</div>
-                            <div className="grid-badges">
-                                <div className="CountDown"><CountDownClock upComingLaunches={upComingLaunches} /></div>
-                                <div className="badge-flex"><img className="badge" src={upComingLaunches.links["patch"]["small"]} /></div>
+                        <Card className={styles.CountDownCard}>
+                            <div className={styles.MissionName}>{upComingLaunches.name}</div>
+                            <div className={styles.gridBadges}>
+                                <div className={styles.CountDown}><CountDownClock upComingLaunches={upComingLaunches} /></div>
+                                <div className={styles.badgeFlex}><img className={styles.badge} src={upComingLaunches.links["patch"]["small"]} /></div>
                             </div>
-                            {/* <CountDownClock upComingLaunches={upComingLaunches} /> */}
                                 <GoogleMap
                                     openMap={(e) => setOpen(!open)}
                                     open={open}
