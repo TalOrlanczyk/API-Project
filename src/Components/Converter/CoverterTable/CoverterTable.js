@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './CoverterTable.css';
+import styles from './CoverterTable.module.css'
 import Loading from '../../Loading/Loading';
 import DatePickerCurr from './DatePickerCurr/DatePickerCurr';
 import TableComp from './TableComp/TableComp';
 import { TodayExchangeRate, TodatExchangeRateBySymbol, ExchangeByDataAndOption } from '../../../API/GET/exchange';
-
-const BASE_URL = 'https://api.exchangeratesapi.io/';
 
 const initialObject = {};
 const CoverterTable = ({ currencyOptions }) => {
@@ -85,7 +83,7 @@ const CoverterTable = ({ currencyOptions }) => {
         Object.keys(latestRate).length !== coinLength)
         return <Loading />
     return (
-        <div className="date-table slide-in-bck-center-table">
+        <div className={styles.slideInBckCenterTable}>
             <DatePickerCurr handleStuff={(e, selectedDate) => handleStuff(e, selectedDate)} date={latestDate} />
             
             <TableComp latestRate={latestRate} yesterdayRate={yesterdayRate} latestDate={latestDate} />
