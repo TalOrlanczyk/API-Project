@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import './CoverterAmount.css';
+import styles from './CoverterAmount.module.css'
 import CurrencyRow from '../CurrencyRow/CurrencyRow';
 import Loading from '../../Loading/Loading'
 import { TodayExchangeRateByBaseAndSymbol } from '../../../API/GET/exchange';
@@ -40,7 +40,7 @@ const CoverterAmount = ({ currencyOptions,exchangeRate,setExchangeRate }) => {
     if ( isLoading)
         return <Loading />
     return (
-            <div className="coverter-main">
+            <div className={styles.coverterMain}>
                 <CurrencyRow
                     currencyOptions={currencyOptions}
                     selectedCurrency={fromCurrency}
@@ -49,7 +49,7 @@ const CoverterAmount = ({ currencyOptions,exchangeRate,setExchangeRate }) => {
                     amount={fromAmount}
                     compereCurreny={toCurrency}
                 />
-                <div className="equals">=</div>
+                <div className={styles.equals}>=</div>
                 <CurrencyRow
                     currencyOptions={currencyOptions}
                     selectedCurrency={toCurrency}

@@ -1,0 +1,34 @@
+@import '../../../App.css';
+.moneyConver{
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: .25rem;
+    width: 7em;
+    background-color: var(--background-input);
+}
+.list, .arrowdown{
+    composes: PositionRelative from '../../../styles/GlobalStyles.module.css'
+}
+.list,.MoneyValue{
+    padding: 0;
+}
+.list {
+    z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 30vh;
+    border: 1px solid var(--background-list);
+    border-top: none;
+    background:  var(--background-list);
+}
+
+.MoneyValue {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.arrowdown {
+    left: 1vh;
+}

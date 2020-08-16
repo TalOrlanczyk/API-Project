@@ -1,6 +1,6 @@
 import 'date-fns';
 import React, { useState, useRef } from 'react';
-import './CurrencyRow.css';
+import styles from './CurrencyRow.module.css'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
 import ListItems from '../../../Containers/ListItems/ListItems';
@@ -16,11 +16,11 @@ const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onCh
             setOpen(false)
     });
     return (
-        <div className="Currecy">
+        <div className={styles.Currecy}>
             <ListItems open={open} setOpen={(e)=>setOpen(!open)}>
-                <input id="color-input" type="hidden" name="coloris_panneau" value={pickedCoin} />
-                <div className="color-value list-item">{selectedCurrency}<ArrowDownwardIcon className={open === true ? "arrowdown upside" : "arrowdown"} /></div>
-                <ul className="list" ref={open === true ? wrapperRef : null} >
+                <input type="hidden"  value={pickedCoin} />
+                <div className={[styles.MoneyValue,styles.listItem].join(" ")} >{selectedCurrency}<ArrowDownwardIcon className={styles.arrowdown} /></div>
+                <ul className={styles.list} ref={open === true ? wrapperRef : null} >
                     {currencyOptions
                         .filter(currency => currency !== compereCurreny)
                         .map((option) =>
@@ -31,7 +31,7 @@ const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onCh
                     }
                 </ul>
                 </ListItems>
-            <input type="number" className="money-conver" value={amount} onChange={onChangeAmount} />
+            <input type="number" className={styles.moneyConver} value={amount} onChange={onChangeAmount} />
         </div>
     )
 }

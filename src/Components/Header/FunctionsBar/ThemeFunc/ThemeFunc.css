@@ -2,7 +2,6 @@
 
     .fab-class{
         background-color: var(--button-background);
-        transition: background-color 1s;
         color: rgba(0, 0, 0, 0.87);
         width: 56px;
         height: 56px;
@@ -19,7 +18,6 @@
 
     .fab-class{
         background-color: var(--button-background);
-        transition: background-color 1s;
         color: rgba(0, 0, 0, 0.87);
         width: 56px;
         height: 56px;
@@ -36,7 +34,6 @@
 
     .fab-class{
         background-color: var(--button-background);
-        transition: background-color 1s;
         color: rgba(0, 0, 0, 0.87);
         width: 45px;
         height: 45px;
@@ -56,11 +53,7 @@
 }
 .ThemeFunc-icon{
     color: var(--icon-color);
-    transition: color 1s;
 }
-/* .ThemeFunc-link{
-    background-color: #333 !important;
-} */
 .middle {
     width: 100%;
     display: inherit;

@@ -13,7 +13,6 @@
     animation: rotate 2s infinite ease-in-out;
     transform-origin: 50% 50%;
     fill: var(--fill-background);
-    /* fill: hsl(220, 85%, 65%)  */
   }
   
   @keyframes rotate {
