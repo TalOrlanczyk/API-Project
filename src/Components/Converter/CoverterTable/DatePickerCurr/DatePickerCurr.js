@@ -25,8 +25,8 @@ const dateLabelClass = {
         root: 'date-label-color',
     },
 }
-const DatePickerCurr = ({handleStuff}) => {
-    const [selectedDate, handleDateChange] = useState(new Date());
+const DatePickerCurr = ({handleStuff,date}) => {
+    const [selectedDate, handleDateChange] = useState(new Date(date));
     const isGetToTheSearchLimit = () => {
         if ((selectedDate.getFullYear() <= 2011 && selectedDate.getMonth() === 0 && selectedDate.getDate() <= 3))
             return false;

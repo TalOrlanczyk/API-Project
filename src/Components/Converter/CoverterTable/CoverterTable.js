@@ -60,6 +60,7 @@ const CoverterTable = ({ currencyOptions }) => {
         const DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate() - 1);
         const DatePicked = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate());
         clearState();
+        setLatestDate(selectedDate)
         currencyOptions
             .filter(currecy => currecy !== "ILS")
             .map((option) => {
@@ -85,7 +86,8 @@ const CoverterTable = ({ currencyOptions }) => {
         return <Loading />
     return (
         <div className="date-table slide-in-bck-center-table">
-            <DatePickerCurr handleStuff={(e, selectedDate) => handleStuff(e, selectedDate)} />
+            <DatePickerCurr handleStuff={(e, selectedDate) => handleStuff(e, selectedDate)} date={latestDate} />
+            
             <TableComp latestRate={latestRate} yesterdayRate={yesterdayRate} latestDate={latestDate} />
         </div>
     )
