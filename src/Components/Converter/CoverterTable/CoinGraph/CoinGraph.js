@@ -55,12 +55,16 @@ const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
                 setChartData({ ...ChartData, datasets: [Dataset], labels: labels  })
             })
     }, [pickData]);
-
+    const AnimationEnd = () => {
+        closeGraph()
+    }
+    const AnimateStart = () =>{
+        console.log("hi")
+    }
     return (
-
         <div className="coinGraph-container">
-            <div id="test" className={close === false ? "scale-in-center" : "slide-out-bck-center"} >{pickData}
-                <button className="left-exit" onClick={() => setClose(true)} onAnimationEnd={() => closeGraph()}>
+            <div className={close === false ? "scale-in-center" : "slide-out-bck-center"} onAnimationEnd={close === true ?() =>AnimationEnd():null} onAnimationStart={()=>AnimateStart()}>{pickData}
+                <button className="left-exit" onClick={() => setClose(true)}>
                     <Close />
                 </button>
                 {ChartData.labels.length > 0 ?

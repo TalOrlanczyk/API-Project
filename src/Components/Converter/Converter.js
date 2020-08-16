@@ -1,5 +1,6 @@
 import React from 'react';
 import './Converter.css';
+import styles from './Converter.module.css'
 import CoverterAmount from './CoverterAmount/CoverterAmount';
 import CoverterTable from './CoverterTable/CoverterTable';
 import useLatestCurrecny from '../customHooks/customeHooks';
@@ -9,9 +10,9 @@ const Converter = () => {
     if (isLoading)
         return <Loading />
     return (
-        <div className="converter-warrper">
-            <div className="title">
-                <h1 className="Converter-Header">Convert</h1>
+        <div className={styles.converterWarrper}>
+            <div className={styles.title}>
+                <h1 className={styles.ConverterHeader}>Convert</h1>
             </div>
             <CoverterAmount 
                 currencyOptions={currencyOptions}
