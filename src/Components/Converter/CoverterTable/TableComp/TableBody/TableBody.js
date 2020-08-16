@@ -2,11 +2,30 @@ import React from 'react';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import './TableBody.css';
 
-const TableBody = ({ latestRate, dailyChange,PickDataToGraph }) => {
+const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph }) => {
     const classDailyChange = (option) => {
         if (option > 0) return "positive";
         else if (option < 0) return "negative";
         else return "same";
+    }
+    const dailyChange = (option) => {
+
+        let precentege = (option[1] / yesterdayRate[option[0]]) * 100;
+        let howFarFromhundred = 100 - precentege;
+        let noneDecimel = howFarFromhundred.toString().split(".")[0];
+        let onlythreedecimel = howFarFromhundred.toString().split(".")[1];
+        if (onlythreedecimel != undefined) {
+
+            onlythreedecimel = onlythreedecimel.substring(0, 3);
+            if (onlythreedecimel.length === 2)
+                onlythreedecimel = onlythreedecimel + "0";
+            else if (onlythreedecimel.length === 1)
+                onlythreedecimel = onlythreedecimel + "00";
+        } else {
+            onlythreedecimel = "0";
+        }
+
+        return noneDecimel + "." + onlythreedecimel;
     }
     return (
         <tbody className="tableBody">

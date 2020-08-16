@@ -72,6 +72,9 @@ html, body {
 *::-webkit-scrollbar-thumb:hover {
   background-color: var(--scrollbar-hover-background); 
 }
+*{
+  scroll-behavior: smooth;
+}
 :root {
     --hover-overlay:  rgba(78, 156, 175, 0.51);
     --nav-bar-background:  #c3c3c3;
@@ -102,7 +105,7 @@ html, body {
     --toggle-active-text:  rgb(24, 119, 242);
     --toggle-button-active-background:  #E7F3FF;
     --wash:  #E4E6EB;
-    --web-wash:  #F0F2F5;
+    --web-wash:  #d2d2d2;
     --warning:  hsl(40, 89%, 52%);
     --link-background: #4E9CAF;
     --link-text-color: black;
@@ -135,9 +138,19 @@ html, body {
     --fill-background:hsl(220, 85%, 65%);
     --navbar-mobile-background : rgb(155, 155, 155);
     --popover-color:#cccccc;
+    --LoaderLineRed: hsl(0, 80%, 60%);
+    --LoaderLineYellow: hsl(60, 80%, 60%);
+    --LoaderLineGreen:hsl(120, 80%, 60%);
+    --LoaderLineAzure: hsl(180, 80%, 60%);
+    --LoaderLineBlue:hsl(240, 80%, 60%);
   }
 
 .darkmode:root, .darkmode {
+  --LoaderLineRed: hsl(0, 69% ,72%);
+  --LoaderLineYellow: hsl(60, 69% ,72%);
+  --LoaderLineGreen: hsl(120, 69% ,72%);
+  --LoaderLineAzure: hsl(180, 69% ,72%);
+  --LoaderLineBlue: hsl(240, 69% ,72%);
     --background-list: #464646;
     --background-list-hover: #6d6d6d59;
     --background-input : #635e5e;

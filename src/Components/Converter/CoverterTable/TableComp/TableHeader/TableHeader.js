@@ -1,22 +1,13 @@
 import React from 'react';
 import './TableHeader.css';
 
-const TableHeader = () => {
+const TableHeader = ({headers}) => {
     return (
         <thead className="tableHeader">
             <tr>
-                <td>
-                    type
-            </td>
-                <td>
-                    rate
-            </td>
-                <td>
-                    daily change
-            </td>
-                <td>
-                    graph
-            </td>
+               {headers.map((header,index)=> 
+                   <td key={index}>{header}</td>
+               )}
             </tr>
         </thead>
     )

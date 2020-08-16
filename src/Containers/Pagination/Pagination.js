@@ -1,5 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import SkipNext from '@material-ui/icons/SkipNext';
+import SkipPrevious from '@material-ui/icons/SkipPrevious';
+import ArrowLeft from '@material-ui/icons/ArrowLeft';
+import ArrowRight from '@material-ui/icons/ArrowRight';
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
 const UNREVEAL_PAGE = '...'
@@ -18,12 +22,15 @@ const range = (from, to, step = 1) => {
 
     return range;
 }
-const Pagination = ({ totalRecords, pageLimit, pageNeighbours, onPageChanged,CurrentPage }) => {
+const Pagination = ({ totalRecords, pageLimit, pageNeighbours, onPageChanged, CurrentPage }) => {
     const TotalPages = Math.ceil(totalRecords / pageLimit);
     const endPage = Math.min(TotalPages - 1, CurrentPage + pageNeighbours);
-    const gotoPage = (e,page) => {
+    const gotoPage = (e, page) => {
         e.preventDefault();
-        onPageChanged(page)
+        if (page > 1)
+            onPageChanged(page)
+        else
+            onPageChanged(1)
     }
 
 
@@ -55,7 +62,7 @@ const Pagination = ({ totalRecords, pageLimit, pageNeighbours, onPageChanged,Cur
                 // handle: (1) < {4 5} [6] {7 8} > (10)
                 case (hasLeftSpill && hasRightSpill):
                 default: {
-                    pages = [UNREVEAL_PAGE, ...pages,UNREVEAL_PAGE];
+                    pages = [UNREVEAL_PAGE, ...pages, UNREVEAL_PAGE];
                     break;
                 }
             }
@@ -70,12 +77,26 @@ const Pagination = ({ totalRecords, pageLimit, pageNeighbours, onPageChanged,Cur
         <Fragment>
             <nav aria-label="Countries Pagination">
                 <ul className="pagination">
+                    <li className="page-item">
+                        <a className="page-link" href="#" aria-label="Unrevel" onClick={(e) => gotoPage(e, 1)}>
+                            <span className="sr-only">
+                                <SkipPrevious />
+                            </span>
+                        </a>
+                    </li>
+                    <li className="page-item">
+                        <a className="page-link" href="#" aria-label="Unrevel" onClick={(e) => gotoPage(e, CurrentPage - 1)}>
+                            <span className="sr-only">
+                                <ArrowLeft />
+                            </span>
+                        </a>
+                    </li>
                     {fetchPageNumbers()
                         .map((page, index) => {
 
                             if (page === UNREVEAL_PAGE) return (
                                 <li key={index} className="page-item">
-                                    <a className="page-link" href="#" aria-label="Unrevel" onClick={(e)=>gotoPage(e,endPage + 1)}>
+                                    <a className="page-link" href="#" aria-label="Unrevel" onClick={(e) => gotoPage(e, endPage + 1)}>
                                         <span className="sr-only">...</span>
                                     </a>
                                 </li>
@@ -83,11 +104,26 @@ const Pagination = ({ totalRecords, pageLimit, pageNeighbours, onPageChanged,Cur
 
                             return (
                                 <li key={index} className={`page-item${CurrentPage === page ? ' active' : ''}`}>
-                                    <a className="page-link" href="#" onClick={(e)=>gotoPage(e,page)}>{page}</a>
+                                    <a className="page-link" href="#" onClick={(e) => gotoPage(e, page)}>{page}</a>
                                 </li>
                             );
 
                         })}
+
+                    <li className="page-item">
+                        <a className="page-link" href="#" aria-label="Unrevel" onClick={(e) => gotoPage(e, CurrentPage + 1)}>
+                            <span className="sr-only">
+                                <ArrowRight />
+                            </span>
+                        </a>
+                    </li>
+                    <li className="page-item">
+                        <a className="page-link" href="#" aria-label="Unrevel" onClick={(e) => gotoPage(e, TotalPages)}>
+                            <span className="sr-only">
+                                <SkipNext />
+                            </span>
+                        </a>
+                    </li>
 
                 </ul>
             </nav>

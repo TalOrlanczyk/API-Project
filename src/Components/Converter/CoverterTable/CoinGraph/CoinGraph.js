@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Close from '@material-ui/icons/Close';
 import './CoinGraph.css';
-import { Bar, Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { ExchangeHistory } from '../../../../API/GET/exchange';
-const BASE_URL = 'https://api.exchangeratesapi.io/';
+import { calcMonth, GraphThemeLine } from '../../../../functions/functions';
 const data = {
     labels: "",
     datasets: [
@@ -33,31 +33,15 @@ const data = {
 const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
     const [ChartData, setChartData] = useState(data)
     const [close, setClose] = useState(false);
-    const [GraphTheme,setGraphTheme] = useState({})
-    const calcMonth = (month) => {
-        if (month >= 10) return month
-        return "0" + month;
-    }
+    let theme = GraphThemeLine();
+    
+    window.scrollTo(0,document.body.scrollHeight);
     useEffect(() => {
-        if (navigator.userAgent.match(/Android/i)
-            || navigator.userAgent.match(/webOS/i)
-            || navigator.userAgent.match(/iPhone/i)
-            || navigator.userAgent.match(/iPad/i)
-            || navigator.userAgent.match(/iPod/i)
-            || navigator.userAgent.match(/BlackBerry/i)
-            || navigator.userAgent.match(/Windows Phone/i))
-            setGraphTheme({ width: "80vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" });
-        else
-        setGraphTheme({ width: "50vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" });
-        var element = document.getElementById("test");
 
-        element.scrollIntoView({ behavior: 'smooth' });
-    }, []);
-    useEffect(() => {
         let DateOfYesterday = new Date(latestDate);
-        DateOfYesterday.setDate(DateOfYesterday.getDate()-7)
+        DateOfYesterday.setDate(DateOfYesterday.getDate() - 7)
         let DateBeforeLates = DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate());
-        ExchangeHistory(DateBeforeLates,latestDate,pickData)
+        ExchangeHistory(DateBeforeLates, latestDate, pickData)
             .then(data => {
                 console.table(data);
                 let Dataset = [...ChartData.datasets][0];
@@ -68,26 +52,19 @@ const CoinGraph = ({ latestDate, openGraph, pickData, closeGraph }) => {
                     datas.push(data.rates[labels[i]].ILS);
                 }
                 Dataset.data = datas;
-                setChartData({ ...ChartData, datasets: [Dataset] })
-                setChartData({ ...ChartData, labels: labels })
+                setChartData({ ...ChartData, datasets: [Dataset], labels: labels  })
             })
     }, [pickData]);
 
-    const closeGraphCard = (e) => {
-        setClose(true);
-        setTimeout(() => {
-            closeGraph();
-        }, 1000)
-    }
     return (
 
         <div className="coinGraph-container">
-            <div id="test" className={close === false ? "scale-in-center" : "roll-out-left"}>{pickData}
-                <button className="left-exit" onClick={(e) => closeGraphCard(e)}>
+            <div id="test" className={close === false ? "scale-in-center" : "slide-out-bck-center"} >{pickData}
+                <button className="left-exit" onClick={() => setClose(true)} onAnimationEnd={() => closeGraph()}>
                     <Close />
                 </button>
                 {ChartData.labels.length > 0 ?
-                    <div className="chartline" style={GraphTheme}>
+                    <div className="chartline" style={theme}>
 
                         <Line
                             data={ChartData}

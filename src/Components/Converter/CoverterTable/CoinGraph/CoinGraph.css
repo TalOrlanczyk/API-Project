@@ -69,8 +69,8 @@
     align-items: center;
 }
 
-.roll-out-left {
-    animation: roll-out-left 0.6s ease-in both;
+.slide-out-bck-center {
+    animation: slide-out-bck-center 0.6s ease-in both;
     border-radius: 4px;
     width: 35vw;
     height: 35vh;
@@ -97,3 +97,14 @@
     border: 0;
     color: rgb(223, 222, 222);
 }
+  @keyframes slide-out-bck-center {
+    0% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateZ(-1100px);
+        opacity: 0;
+    }
+  }
+  

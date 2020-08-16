@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { TodayExchangeRate } from '../../API/GET/exchange';
 const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 export const useInterval = (callback, delay) =>{
     const savedCallback = useRef();
@@ -22,21 +23,19 @@ export const useInterval = (callback, delay) =>{
   
 const useLatestCurrecny = () => {
     const [currencyOptions, setCurrencyOptions] = useState([]);
-    const [fromCurrency, setFromCurrency] = useState();
-    const [toCurrency, setToCurrency] = useState();
-    const [exchangeRate, setExchangeRate] = useState()
+    const [exchangeRate,setExchangeRate] = useState(0)
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=> {
-        fetch(BASE_URL)
-            .then(res => res.json())
-            .then(data => {
-                const firstCurrency = Object.keys(data.rates)[0]
-                // setFromCurrency(data.base)
-                // setToCurrency(firstCurrency)
-                // setExchangeRate(data.rates[firstCurrency])
-                setCurrencyOptions([data.base, ...Object.keys(data.rates)])
-            })
+        TodayExchangeRate()
+             .then(data => {
+                 const firstCurrency = Object.keys(data.rates)[0]
+                 let options = [data.base, ...Object.keys(data.rates)];
+                 setCurrencyOptions(options);
+                 setExchangeRate(data.rates[firstCurrency])
+                 setIsLoading(false)
+             })
     },[])
-    return [currencyOptions];
+    return [currencyOptions,exchangeRate,isLoading,useCallback((data)=>setExchangeRate(data))];
 }
 export default useLatestCurrecny;

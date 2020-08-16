@@ -1,0 +1,17 @@
+.gridButton{
+    background-color: var(--card-background);
+    /* position: absolute; */
+    height: var(--navbar-height);
+    width: 100%;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+.GoToLocation{
+    border: 0;
+    background-color: transparent;
+    bottom: 0;
+    left: 0;
+    border-radius: 4px;
+}

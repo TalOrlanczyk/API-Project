@@ -1,16 +1,24 @@
+@import '../../App.css';
 @media only screen and (max-width: 960px) {
 
     .badge{
         width: 5vw;
         height: 5vh;
     }
-    .CountDown-card {
+    .CountDownCard {
         width: 80vw;
         height: 18vh;
     }
     .inner{
         width: 27vw;
         clip-path: circle(4% at 90% 20%);
+    }
+    .containerInfo {
+        /* width: 0vw; */
+        height: 5vh;
+    }
+    .containerInfo:hover{
+        height: 23vh;
     }
 }
 @media only screen and (min-width:961px)  and (max-width: 1920px) {
@@ -19,7 +27,7 @@
         width: 3vw;
         height: 5vh;
     }
-    .CountDown-card {
+    .CountDownCard {
         width: 50vw;
         height: 18vh;
     }
@@ -34,7 +42,7 @@
         width: 10vw;
         height: 5vh;
     }
-    .CountDown-card {
+    .CountDownCard {
         width: 80vw;
         height: 30vh;
     }
@@ -43,27 +51,27 @@
         clip-path: circle(4% at 88% 19%);
     }
 }
-.data-of-mission{
+.dataOfMission{
     text-align: center;
 }
-.CountDown-warrper{
+.CountDownWarrper{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 5vh;
 }
-.span-warrper {
+.spanWarrper {
     text-align: center;
     font-size: 3vh;
 }
 
-.CountDown-span,.Location-Icon,.title,.MissionName{
+.CountDownSpan,.LocationIcon,.title,.MissionName{
     color:var(--link-text-color);
 }
 .title{
     text-align: center;
 }
-.grid-badges{
+.gridBadges{
     width: 100%;
     height: 10vh;
     display: grid;
@@ -78,7 +86,7 @@
     margin: auto;
 }
 
-.badge-flex{
+.badgeFlex{
     grid-area: Badge;
     padding: 1vh;
     justify-content: flex-end;

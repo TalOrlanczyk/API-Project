@@ -2,53 +2,42 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './CoverterAmount.css';
 import CurrencyRow from '../CurrencyRow/CurrencyRow';
 import Loading from '../../Loading/Loading'
-import { TodayExchangeRate, TodayExchangeRateByBaseAndSymbol } from '../../../API/GET/exchange';
-const BASE_URL = 'https://api.exchangeratesapi.io/latest';
-const CoverterAmount = ({ currencyOptions }) => {
+import { TodayExchangeRateByBaseAndSymbol } from '../../../API/GET/exchange';
+const CoverterAmount = ({ currencyOptions,exchangeRate,setExchangeRate }) => {
     const [fromCurrency, setFromCurrency] = useState(currencyOptions[0])
     const [toCurrency, setToCurrency] = useState(currencyOptions[1])
-    const [exchangeRate, setExchangeRate] = useState()
-    const [amount, setAmount] = useState(1)
-    const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
-
+    const [amountData,setAmountData] = useState({
+        amount: 1,
+        amountInFromCurrency: true
+    });
+    const [isLoading,setIsLoading] = useState(true)
     let toAmount, fromAmount
-    if (amountInFromCurrency) {
-        fromAmount = amount
-        toAmount = amount * exchangeRate
+    if (amountData.amountInFromCurrency) {
+        fromAmount = amountData.amount
+        toAmount = amountData.amount * exchangeRate
     } else {
-        toAmount = amount
-        fromAmount = amount / exchangeRate
+        toAmount = amountData.amount
+        fromAmount = amountData.amount / exchangeRate
     }
-
     useEffect(() => {
-       TodayExchangeRate()
-            .then(data => {
-                let firstCurrency = Object.keys(data.rates)[0]
-                // setFromCurrency(data.base)
-                // setToCurrency(firstCurrency)
-                setExchangeRate(data.rates[firstCurrency])
-            })
-    }, [])
-
-    useEffect(() => {
-        if (fromCurrency != null && toCurrency != null) {
+        if (fromCurrency && toCurrency ) {
             TodayExchangeRateByBaseAndSymbol(fromCurrency,toCurrency)
-                .then(data => setExchangeRate(data.rates[toCurrency]))
+                .then(data => {
+                    setExchangeRate(data.rates[toCurrency]);
+                    setIsLoading(false);
+                })
         }
     }, [fromCurrency, toCurrency])
 
 
     const handleFromAmountChange = useCallback((e) => {
-        setAmount(e.target.value)
-        setAmountInFromCurrency(true)
+        setAmountData({...amountData,amount:e.target.value,amountInFromCurrency:true});
     }, [])
 
     const handleToAmountChange = useCallback((e) => {
-        setAmount(e.target.value)
-        setAmountInFromCurrency(false)
+        setAmountData({...amountData,amount:e.target.value,amountInFromCurrency:false});
     }, [])
-    //slide-in-bck-center
-    if (fromCurrency == null || toCurrency == null || currencyOptions == null || fromAmount == null || exchangeRate == null)
+    if ( isLoading)
         return <Loading />
     return (
             <div className="coverter-main">

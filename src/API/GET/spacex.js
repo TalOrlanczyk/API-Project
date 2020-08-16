@@ -7,4 +7,5 @@ const get = async (url) => (
         .then(json =>  json
         )
 )
-export const SpaceXUpcomingLaunches = () => get(`${SpaceXBaseUrlLaunches}/upcoming`);
+export const SpaceXNextLaunche = () => get(`${SpaceXBaseUrlLaunches}/next`);
+export const SpaceXPastLaunches = () => get(`${SpaceXBaseUrlLaunches}/past`);
