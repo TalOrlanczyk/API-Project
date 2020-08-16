@@ -26,7 +26,6 @@ const TableComp = ({ latestRate, yesterdayRate,latestDate }) => {
                 openGraph ?
                     <CoinGraph
                         latestDate={latestDate}
-                        openGraph={openGraph}
                         pickData={pickData}
                         closeGraph={(e) => setOpenGraph(false)} />
                     : null

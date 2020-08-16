@@ -32,9 +32,6 @@ const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph }) => {
             {Object.entries(latestRate)
                 .filter(latest => latest[0] !== "ILS")
                 .map((option) =>
-
-
-
                     <tr key={option[0]}>
                         <td className="text-color">{option[0]}</td>
                         <td className="text-color">{option[1]}</td>

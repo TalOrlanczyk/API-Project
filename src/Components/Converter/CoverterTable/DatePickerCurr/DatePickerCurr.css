@@ -1,0 +1,47 @@
+
+.date{
+    text-align: center;
+}
+.date-border-color {
+    border-bottom : 1px solid var(--date-color) !important ;
+}
+.date-border-color:hover::before {
+    border-bottom : 2px solid var(--date-color) !important ;
+}
+.date-border-color::after {
+    border-bottom : 2px solid var(--date-color) !important ;
+}
+
+.date-label-color{
+    color: var(--date-color) !important;
+}
+.date-input-color{
+    color: var(--date-color-input) !important;
+}
+
+.date-search {
+    color: var(--date-color) !important;
+}
+.event-color{
+    color: var(--event-color);
+}
+.button-class{
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.87);
+    width: 56px;
+    height: 56px;
+    outline: 0;
+    box-shadow: var(--shadow-1),
+                var(--shadow-2),
+                var(--shadow-5);
+    border:0;
+    
+}
+.ControlColorError{
+    color: var(--ErrorSnackbarTextColor) !important;
+    background-color: var(--ErrorSnackbarBackground) !important;
+    margin: 3vh !important;
+  }
+  .disabled{
+    color: gray;
+}

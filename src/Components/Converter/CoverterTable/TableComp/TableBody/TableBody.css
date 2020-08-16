@@ -1,0 +1,28 @@
+.positive {
+    color: var(--positive);
+}
+
+.negative{
+    color: var(--negative);
+}
+
+.same{
+    color: blue
+}
+.table{
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+
+.tableBody{
+    background-color: var(--table-background);
+}
+
+.icon-color {
+    color: var(--grahp-color);
+}
+.text-color{
+    color: var(--text-color);
+}

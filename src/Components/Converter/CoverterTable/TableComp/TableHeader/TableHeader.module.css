@@ -1,5 +1,5 @@
+@import '../../../../../App.css';
 .tableHeader{
     background-color: var(--table-header);
     color: white;
-
 }

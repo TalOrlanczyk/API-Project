@@ -4,6 +4,7 @@ import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
 import Search from '@material-ui/icons/Search';
 import ErrorSnackbar from '../../../Snackbars/ErrorSnackbar/ErrorSnackbar';
 import Event from '@material-ui/icons/Event';
+import Alert from '@material-ui/lab/Alert';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import './DatePickerCurr.css';
 
@@ -28,7 +29,9 @@ const dateLabelClass = {
 const DatePickerCurr = ({handleStuff,date}) => {
     const [selectedDate, handleDateChange] = useState(new Date(date));
     const isGetToTheSearchLimit = () => {
-        if ((selectedDate.getFullYear() <= 2011 && selectedDate.getMonth() === 0 && selectedDate.getDate() <= 3))
+        if (selectedDate.getFullYear() <= 2011 && selectedDate.getMonth() === 0 && selectedDate.getDate() <= 3)
+            return false;
+        else if (selectedDate.getFullYear() < 2011)
             return false;
         return true;
     }
@@ -54,8 +57,9 @@ const DatePickerCurr = ({handleStuff,date}) => {
                 </button>
             </div>
             {isGetToTheSearchLimit() === false ?
-                <ErrorSnackbar
-                    text={"cant search data earlier then 04/01/2011"} />
+                <Alert
+                    severity="error"
+                    className="ControlColorError" >cant search data earlier then 04/01/2011</Alert>
                 : null
             }
         </>

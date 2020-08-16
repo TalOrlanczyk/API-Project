@@ -1,9 +1,23 @@
 import { MobileGoogleMap, GoogleMapsUrl } from "../Utils/ConstValues";
-
+const chartConfig = {
+    type: "line",
+    data: {},
+    options: {}
+};
 export const calcMonth = (month) => {
     if (month >= 10) return month
     return "0" + month;
 };
+export const DateWeekAgo = (latestDate) => {
+    let DateOfYesterday = new Date(latestDate);
+    DateOfYesterday.setDate(DateOfYesterday.getDate() - 7)
+    return DateOfYesterday.getFullYear() + "-" + calcMonth(DateOfYesterday.getMonth() + 1) + "-" + calcMonth(DateOfYesterday.getDate());
+}
+export const isDarkMode = () => {
+    if (document.getElementById("API").className === 'darkmode')
+        return true;
+    return false;
+}
 export const IsMobile = () => {
     if (navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
@@ -28,6 +42,14 @@ export const OpenGoogleMaps = (lat,lng,placeId) => {
     else
         window.open(GoogleMapsSeachByPlace(lat,lng,placeId));
 }
+
+export const ChartConfigByType = (chartType) => {
+    let ConfigCopy =  JSON.parse(JSON.stringify(chartConfig));
+    ConfigCopy.type = chartType;
+    return ConfigCopy;
+}
+
+
 export const GraphThemeLine = () => {
     let theme;
     if (IsMobile())
