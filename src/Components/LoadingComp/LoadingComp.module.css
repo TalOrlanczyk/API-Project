@@ -1,35 +1,27 @@
 @import '../../App.css';
 .loader {
     background: var(--ApplicationBackground);
-    background: radial-gradient(var(--ApplicationBackground), var(--ApplicationBackground));
-    bottom: 0;
-    left: 0;
     overflow: hidden;
-    right: 0;
-    top: 0;
     z-index: 99999;
 }
-
-.loader_inner {
-    bottom: 0;
-    height: 60px;
-    left: 0;
+.loader_inner,.loader_line{
     margin: auto;
-    position: absolute;
-    right: 0;
-    top: 0;
+}
+.loader_inner,.loader_line,.loader_line_wrap{
+    composes: PositionAbsolute from '../../styles/GlobalStyles.module.css';
+}
+.loader_inner {
+    height: 60px;
+    composes: CenterOfThePage from '../../styles/GlobalStyles.module.css';
     width: 100px;
 }
 
 .loader_line_wrap {
-    animation: 
-		spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
-	;
+    animation: spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite;
     box-sizing: border-box;
     height: 50px;
     left: 0;
     overflow: hidden;
-    position: absolute;
     top: 0;
     transform-origin: 50% 100%;
     width: 100px;
@@ -40,12 +32,11 @@
     box-sizing: border-box;
     height: 100px;
     left: 0;
-    margin: 0 auto;
-    position: absolute;
     right: 0;
     top: 0;
     width: 100px;
 }
+
 .loader_line_wrap:nth-child(1) { animation-delay: -50ms; }
 .loader_line_wrap:nth-child(2) { animation-delay: -100ms; }
 .loader_line_wrap:nth-child(3) { animation-delay: -150ms; }
