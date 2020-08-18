@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './GoogleMapActions.module.css'
-import { OpenGoogleMaps } from '../../../../functions/functions';
+import { OpenGoogleMaps } from '../MapUtils/MapUtils';
 import Room from '@material-ui/icons/Room';
 import LocationOff from '@material-ui/icons/LocationOff';
 import MapIcon from '@material-ui/icons/Map';

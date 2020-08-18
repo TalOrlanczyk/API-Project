@@ -3,8 +3,8 @@ import './Converter.css';
 import styles from './Converter.module.css'
 import CoverterAmount from './CoverterAmount/CoverterAmount';
 import CoverterTable from './CoverterTable/CoverterTable';
-import useLatestCurrecny from '../customHooks/customeHooks';
 import Loading from '../Loading/Loading';
+import useLatestCurrecny from '../../customHooks/useLatestCurrecny';
 const Converter = () => {
     const [currencyOptions,exchangeRate,isLoading,setExchange] = useLatestCurrecny();
     if (isLoading)

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Pagination from '../../Containers/Pagination/Pagination';
-import { PokemonsSearchInitial, PokemonsSearchJumpToPage, PokemonForm } from '../../API/GET/pokemon';
+import { PokemonsSearchJumpToPage, PokemonForm } from '../../API/GET/pokemon';
 import LoadingComp from '../LoadingComp/LoadingComp';
-import usePrevious from '../customHooks/usePrevious';
+import usePrevious from '../../customHooks/usePrevious';
 
 const Pokemon = (props) => {
 
@@ -29,6 +29,9 @@ const Pokemon = (props) => {
                         .then(form => {
 
                             pokemon.url = form.sprites.front_default;
+                            if(!pokemon.url.includes('raw.githubusercontent')) {
+                                console.log(form.sprites.front_default,splitsUrl[splitsUrl.length - 1])
+                            }
                             if (pokemons.results.length - 1 === index) {
                                 if (PagentionsData.totalRecords === 0) {
                                     setPagentuinData({ ...PagentionsData, totalRecords: pokemons.count });

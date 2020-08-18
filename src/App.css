@@ -125,6 +125,7 @@ html, body {
   --fill-background:hsl(220, 85%, 65%);
   --navbar-mobile-background : rgb(155, 155, 155);
   --popover-color:#cccccc;
+  --link-background: #4E9CAF;
   }
 
 .darkmode:root, .darkmode {

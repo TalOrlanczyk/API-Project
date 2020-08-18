@@ -1,23 +1,26 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import LoadingComp from '../../LoadingComp/LoadingComp';
-import { LoadGoogleMap, OpenGoogleMaps } from '../../../functions/functions';
+import { LoadGoogleMap } from './MapUtils/MapUtils';
 import GoogleMapComp from './GoogleMapComp/GoogleMapComp';
 import GoogleMapActions from './GoogleMapActions/GoogleMapActions';
 const GoogleMap = ({ openMap, open, placeName }) => {
     const googleMapRef = useRef();
-    // const [googleMapRef, googleMapRefReady] = useRefCallback();
     const [GoogleMapInfo, setGoogleMapInfo] = useState({
         lat: 0,
         lng: 0,
         placeId: "",
-        isLoading: true
+        isLoading: true,
+        googleMap: ""
     });
     let googleMap;
     useEffect(() => {
-        if (googleMapRef.current)
+        if (googleMapRef.current && !GoogleMapInfo.googleMap)
             LoadGoogleMap().addEventListener('load', () => {
                 getLatLng();
             });
+        else if (googleMapRef.current && GoogleMapInfo.googleMap){
+            getLatLng()
+        }
     }, [open]);
     const createGoogleMap = (coordinates) => {
         googleMap = new window.google.maps.Map(googleMapRef.current, {
@@ -44,9 +47,7 @@ const GoogleMap = ({ openMap, open, placeName }) => {
                     animation: window.google.maps.Animation.DROP,
                     title: `${placeName}`
                 });
-                setGoogleMapInfo({ ...GoogleMapInfo, lat, lng, placeId, isLoading: false });
-                //In this case it creates a marker, but you can get the lat and lng from the location.LatLng
-
+                setGoogleMapInfo({ ...GoogleMapInfo, lat, lng, placeId, isLoading: false,googleMap });
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }

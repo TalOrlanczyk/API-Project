@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './CountDownClock.module.css'
-import { useInterval } from '../../customHooks/customeHooks';
+import useInterval from '../../../customHooks/useInterval';
 
 const CountDownClock = ({ upComingLaunches }) => {
     const [CountDown, setCountDown] = useState("");

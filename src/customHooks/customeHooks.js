@@ -1,25 +1,5 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { TodayExchangeRate } from '../../API/GET/exchange';
-const BASE_URL = 'https://api.exchangeratesapi.io/latest';
-export const useInterval = (callback, delay) =>{
-    const savedCallback = useRef();
-  
-    // Remember the latest function.
-    useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-  
-    // Set up the interval.
-    useEffect(() => {
-      function tick() {
-        savedCallback.current();
-      }
-      if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
-      }
-    }, [delay]);
-  }
+import { useState, useEffect, useCallback } from 'react';
+import { TodayExchangeRate } from '../API/GET/exchange';
   
 const useLatestCurrecny = () => {
     const [currencyOptions, setCurrencyOptions] = useState([]);

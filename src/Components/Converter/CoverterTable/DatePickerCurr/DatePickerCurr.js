@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
 import Search from '@material-ui/icons/Search';
-import ErrorSnackbar from '../../../Snackbars/ErrorSnackbar/ErrorSnackbar';
+
 import Event from '@material-ui/icons/Event';
 import Alert from '@material-ui/lab/Alert';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -26,7 +26,7 @@ const dateLabelClass = {
         root: 'date-label-color',
     },
 }
-const DatePickerCurr = ({handleStuff,date}) => {
+const DatePickerCurr = ({handleChangeDateExchange,date}) => {
     const [selectedDate, handleDateChange] = useState(new Date(date));
     const isGetToTheSearchLimit = () => {
         if (selectedDate.getFullYear() <= 2011 && selectedDate.getMonth() === 0 && selectedDate.getDate() <= 3)
@@ -52,7 +52,7 @@ const DatePickerCurr = ({handleStuff,date}) => {
                         format="dd/MM/yyyy"
                     />
                 </MuiPickersUtilsProvider>
-                <button className="button-class" disabled={!isGetToTheSearchLimit()} onClick={(e) => handleStuff(e,selectedDate)}>
+                <button className="button-class" disabled={!isGetToTheSearchLimit()} onClick={(e) => handleChangeDateExchange(e,selectedDate)}>
                     <Search className={isGetToTheSearchLimit() === false ? "disabled" : "date-search"} />
                 </button>
             </div>
