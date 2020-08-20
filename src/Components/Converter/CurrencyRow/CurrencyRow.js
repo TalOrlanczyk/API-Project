@@ -1,5 +1,5 @@
 import 'date-fns';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import styles from './CurrencyRow.module.css'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
@@ -7,20 +7,20 @@ import ListItems from '../../../Containers/ListItems/ListItems';
 import ListItem from '../../../Containers/ListItem/ListItem';
 
 const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onChangeAmount, amount, compereCurreny }) => {
+    console.log('[CurrencyRow.js] rerender')
     const [open, setOpen] = useState(false);
-    const [pickedCoin] = useState("");
     const wrapperRef = useRef(null);
 
     useOutsideClick(wrapperRef, () => {
-        if (open === true)
+        if (open)
             setOpen(false)
     });
+
     return (
         <div className={styles.Currecy}>
-            <ListItems open={open} setOpen={(e)=>setOpen(!open)}>
-                <input type="hidden"  value={pickedCoin} />
+            <ListItems open={open} setOpen={()=> setOpen(!open)}>
                 <div className={[styles.MoneyValue,styles.listItem].join(" ")} >{selectedCurrency}<ArrowDownwardIcon className={styles.arrowdown} /></div>
-                <ul className={styles.list} ref={open === true ? wrapperRef : null} >
+                <ul className={styles.list} ref={open ? wrapperRef : null} >
                     {currencyOptions
                         .filter(currency => currency !== compereCurreny)
                         .map((option) =>

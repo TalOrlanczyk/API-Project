@@ -1,33 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './TableComp.css';
 import CoinGraph from '../CoinGraph/CoinGraph';
 import TableHeader from './TableHeader/TableHeader';
 import TableBody from './TableBody/TableBody';
 
-const TableComp = ({ latestRate, yesterdayRate,latestDate }) => {
-    const [openGraph, setOpenGraph] = useState(false);
-    const [pickData, setPickData] = useState("");
+const TableComp = ({ CurreciesRates }) => {
+    const [graphData, setGraphData] = useState({
+        openGraph: false,
+        pickedData: ""
+    })
     const PickDataToGraph = (e, option) => {
-        setPickData(option);
-        setOpenGraph(true);
+        setGraphData({ ...graphData, pickedData: option, openGraph: true })
     }
-    return (
-        <>
+    const tableMemo = useMemo(() => {
+        return (
             <div className="table">
                 <table className="tableCovertor">
-                    <TableHeader headers={["type","rate","daily change","graph"]}/>
-                    <TableBody 
-                        latestRate={latestRate} 
-                        yesterdayRate={yesterdayRate}  
-                        PickDataToGraph={(e,option) => PickDataToGraph(e,option)}/>
+                    <TableHeader headers={["type", "rate", "daily change", "graph"]} />
+                    <TableBody
+                        pickedBase={CurreciesRates.pickedBase}
+                        latestRate={CurreciesRates.latestRate}
+                        yesterdayRate={CurreciesRates.yesterdayRate}
+                        PickDataToGraph={(e, option) => PickDataToGraph(e, option)} />
                 </table>
             </div>
+        )
+    }, [CurreciesRates.latestRate, CurreciesRates.yesterdayRate]);
+    return (
+        <>
+            {tableMemo}
             {
-                openGraph ?
+                graphData.openGraph ?
                     <CoinGraph
-                        latestDate={latestDate}
-                        pickData={pickData}
-                        closeGraph={(e) => setOpenGraph(false)} />
+                        latestDate={CurreciesRates.latestDate}
+                        pickData={graphData.pickedData}
+                        closeGraph={(e) => setGraphData({ ...graphData, openGraph: false })} />
                     : null
             }
         </>

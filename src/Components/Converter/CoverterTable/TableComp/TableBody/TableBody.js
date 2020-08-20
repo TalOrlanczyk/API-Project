@@ -2,7 +2,8 @@ import React from 'react';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import './TableBody.css';
 
-const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph }) => {
+const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph,pickedBase }) => {
+    console.log('[TableBody.js] rerender')
     const classDailyChange = (option) => {
         if (option > 0) return "positive";
         else if (option < 0) return "negative";
@@ -30,7 +31,7 @@ const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph }) => {
     return (
         <tbody className="tableBody">
             {Object.entries(latestRate)
-                .filter(latest => latest[0] !== "ILS")
+                .filter(latest => latest[0] !== pickedBase)
                 .map((option) =>
                     <tr key={option[0]}>
                         <td className="text-color">{option[0]}</td>

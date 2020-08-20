@@ -26,8 +26,8 @@ const dateLabelClass = {
         root: 'date-label-color',
     },
 }
-const DatePickerCurr = ({handleChangeDateExchange,date}) => {
-    const [selectedDate, handleDateChange] = useState(new Date(date));
+const DatePickerCurr = ({handleDateChange,date}) => {
+    const [selectedDate, setSelectedDate] = useState(new Date(date));
     const isGetToTheSearchLimit = () => {
         if (selectedDate.getFullYear() <= 2011 && selectedDate.getMonth() === 0 && selectedDate.getDate() <= 3)
             return false;
@@ -48,11 +48,11 @@ const DatePickerCurr = ({handleChangeDateExchange,date}) => {
                         label="Responsive"
                         views={["year", "month", "date"]}
                         value={selectedDate}
-                        onChange={date => handleDateChange(date)}
+                        onChange={date => setSelectedDate(date)}
                         format="dd/MM/yyyy"
                     />
                 </MuiPickersUtilsProvider>
-                <button className="button-class" disabled={!isGetToTheSearchLimit()} onClick={(e) => handleChangeDateExchange(e,selectedDate)}>
+                <button className="button-class" disabled={!isGetToTheSearchLimit()} onClick={(e) => handleDateChange(selectedDate)}>
                     <Search className={isGetToTheSearchLimit() === false ? "disabled" : "date-search"} />
                 </button>
             </div>
