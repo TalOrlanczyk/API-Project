@@ -1,6 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
-import LoadingComp from '../../LoadingComp/LoadingComp';
-import { LoadGoogleMap } from './MapUtils/MapUtils';
+import React, { useRef, useEffect, useState } from 'react';
 import GoogleMapComp from './GoogleMapComp/GoogleMapComp';
 import GoogleMapActions from './GoogleMapActions/GoogleMapActions';
 const GoogleMap = ({ openMap, open, placeName }) => {
@@ -15,10 +13,13 @@ const GoogleMap = ({ openMap, open, placeName }) => {
     let googleMap;
     useEffect(() => {
         if (googleMapRef.current && !GoogleMapInfo.googleMap)
-            LoadGoogleMap().addEventListener('load', () => {
-                getLatLng();
-            });
-        else if (googleMapRef.current && GoogleMapInfo.googleMap){
+            import('./MapUtils/MapUtils')
+                .then(methods => {
+                    methods.LoadGoogleMap().addEventListener('load', () => {
+                        getLatLng();
+                    });
+                })
+        else if (googleMapRef.current && GoogleMapInfo.googleMap) {
             getLatLng()
         }
     }, [open]);
@@ -47,7 +48,7 @@ const GoogleMap = ({ openMap, open, placeName }) => {
                     animation: window.google.maps.Animation.DROP,
                     title: `${placeName}`
                 });
-                setGoogleMapInfo({ ...GoogleMapInfo, lat, lng, placeId, isLoading: false,googleMap });
+                setGoogleMapInfo({ ...GoogleMapInfo, lat, lng, placeId, isLoading: false, googleMap });
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
