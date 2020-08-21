@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ApisProjects/static/css/main.6deaff27.chunk.css",
-    "main.js": "/ApisProjects/static/js/main.2bd20a4e.chunk.js",
-    "main.js.map": "/ApisProjects/static/js/main.2bd20a4e.chunk.js.map",
+    "main.js": "/ApisProjects/static/js/main.efa1f17d.chunk.js",
+    "main.js.map": "/ApisProjects/static/js/main.efa1f17d.chunk.js.map",
     "runtime-main.js": "/ApisProjects/static/js/runtime-main.4bb459e9.js",
     "runtime-main.js.map": "/ApisProjects/static/js/runtime-main.4bb459e9.js.map",
     "static/js/2.89fb1914.chunk.js": "/ApisProjects/static/js/2.89fb1914.chunk.js",
     "static/js/2.89fb1914.chunk.js.map": "/ApisProjects/static/js/2.89fb1914.chunk.js.map",
     "index.html": "/ApisProjects/index.html",
-    "precache-manifest.da2a0e2238d804ff0042cfddd41d87cb.js": "/ApisProjects/precache-manifest.da2a0e2238d804ff0042cfddd41d87cb.js",
+    "precache-manifest.7fd562236093893ab911e2f6d329e48b.js": "/ApisProjects/precache-manifest.7fd562236093893ab911e2f6d329e48b.js",
     "service-worker.js": "/ApisProjects/service-worker.js",
     "static/css/main.6deaff27.chunk.css.map": "/ApisProjects/static/css/main.6deaff27.chunk.css.map",
     "static/js/2.89fb1914.chunk.js.LICENSE.txt": "/ApisProjects/static/js/2.89fb1914.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4bb459e9.js",
     "static/js/2.89fb1914.chunk.js",
     "static/css/main.6deaff27.chunk.css",
-    "static/js/main.2bd20a4e.chunk.js"
+    "static/js/main.efa1f17d.chunk.js"
   ]
 }
