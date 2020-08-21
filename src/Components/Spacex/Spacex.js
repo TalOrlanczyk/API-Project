@@ -38,10 +38,10 @@ const Spacex = () => {
                             <div className={styles.MissionName}>{upComingLaunches.name}</div>
                             <div className={styles.gridBadges}>
                                 <div className={styles.CountDown}><CountDownClock upComingLaunches={upComingLaunches} /></div>
-                                <div className={styles.badgeFlex}><img className={styles.badge} src={upComingLaunches.links["patch"]["small"]} /></div>
+                                <div className={styles.badgeFlex}><img className={styles.badge} src={upComingLaunches.links["patch"]["small"]} alt="mission patch"/></div>
                             </div>
                                 <GoogleMap
-                                    openMap={(e) => setOpen(!open)}
+                                    mapVisiblity={(e) => setOpen(!open)}
                                     open={open}
                                     placeName={Launchpad[0].launchpad.full_name} />
                         </Card>

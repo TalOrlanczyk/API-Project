@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import GoogleMapComp from './GoogleMapComp/GoogleMapComp';
 import GoogleMapActions from './GoogleMapActions/GoogleMapActions';
-const GoogleMap = ({ openMap, open, placeName }) => {
+const GoogleMap = ({ mapVisiblity, open = false, placeName = "" }) => {
     const googleMapRef = useRef();
     const [GoogleMapInfo, setGoogleMapInfo] = useState({
         lat: 0,
@@ -37,7 +37,6 @@ const GoogleMap = ({ openMap, open, placeName }) => {
         let lat, lng, placeId;
         new window.google.maps.Geocoder().geocode({ 'address': `${placeName}` }, function (results, status) {
             if (status == window.google.maps.GeocoderStatus.OK) {
-                console.log(results[0].geometry.location);
                 placeId = results[0].place_id;
                 createGoogleMap(results[0].geometry.location);
                 lat = results[0].geometry.location.lat();
@@ -56,7 +55,7 @@ const GoogleMap = ({ openMap, open, placeName }) => {
     }
     return (
         <div className="GoogleMapContainer">
-            <GoogleMapActions open={open} openMap={(e) => openMap(e)} MapCoords={{ lat: GoogleMapInfo.lat, lng: GoogleMapInfo.lng, placeId: GoogleMapInfo.placeId }} />
+            <GoogleMapActions open={open} openMap={(e) => mapVisiblity(e)} MapCoords={{ lat: GoogleMapInfo.lat, lng: GoogleMapInfo.lng, placeId: GoogleMapInfo.placeId }} />
             {open ?
                 <GoogleMapComp ref={googleMapRef} />
                 : null}

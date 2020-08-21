@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 1fr;
     justify-items: center;
 }
-.GoToLocation{
+.GoToLocation, .OpenInGoogleMap{
     composes: TransparentNoneBorderButton from '../../../../styles//GlobalStyles.module.css';
     border-radius: 4px;
 }

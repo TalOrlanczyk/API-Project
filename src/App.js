@@ -19,17 +19,14 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      {/* <Route render = {({ location }) => ( */}
       <Switch >
-        {/* <Switch location = { location }> */}
-        <Route exact path='/' component={MainPage} />
+        <Route exact path= '/' component={MainPage} />
         <Route exact path='/Converter/' component={Converter} />
         <Route exact path ='/SpaceX/' component={Spacex}/>
         <Route exact path ='/Pokemon/' component={Pokemon}/>
-        <Route exact path ='/Spotify/' component={Spotify}/>
+        {/* <Route exact path ='/Spotify/' component={Spotify}/> */}
         <Route component={NotFound} />
       </Switch>
-      {/* )} /> */}
       {
         isMobile === true ?
           <NavigatorMobile/>
