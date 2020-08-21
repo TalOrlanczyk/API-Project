@@ -26,14 +26,11 @@ const dateLabelClass = {
         root: 'date-label-color',
     },
 }
-const DatePickerCurr = ({handleDateChange,date}) => {
+const DatePickerCurr = ({handleDateChange,date,isHaveError, setIsErrorFalse}) => {
     const [selectedDate, setSelectedDate] = useState(new Date(date));
-    const isGetToTheSearchLimit = () => {
-        if (selectedDate.getFullYear() <= 2011 && selectedDate.getMonth() === 0 && selectedDate.getDate() <= 3)
-            return false;
-        else if (selectedDate.getFullYear() < 2011)
-            return false;
-        return true;
+    const onChangeValue = (date) => {
+        setSelectedDate(date)
+        setIsErrorFalse()
     }
     return (
         <>
@@ -43,23 +40,22 @@ const DatePickerCurr = ({handleDateChange,date}) => {
                     <DatePicker
                         disableFuture
                         InputLabelProps={dateLabelClass}
-
                         InputProps={dateBorderClasses}
                         label="Responsive"
                         views={["year", "month", "date"]}
                         value={selectedDate}
-                        onChange={date => setSelectedDate(date)}
+                        onChange={date => onChangeValue(date)}
                         format="dd/MM/yyyy"
                     />
                 </MuiPickersUtilsProvider>
-                <button className="button-class" disabled={!isGetToTheSearchLimit()} onClick={(e) => handleDateChange(selectedDate)}>
-                    <Search className={isGetToTheSearchLimit() === false ? "disabled" : "date-search"} />
+                <button className="button-class"  onClick={(e) => handleDateChange(selectedDate)}>
+                    <Search className={isHaveError ? "disabled" : "date-search"} />
                 </button>
             </div>
-            {isGetToTheSearchLimit() === false ?
+            {isHaveError ?
                 <Alert
                     severity="error"
-                    className="ControlColorError" >cant search data earlier then 04/01/2011</Alert>
+                    className="ControlColorError" >Try to enter a new date that is above the date entered</Alert>
                 : null
             }
         </>

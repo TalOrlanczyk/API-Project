@@ -6,9 +6,9 @@ import TableComp from './TableComp/TableComp';
 import { ExchangeByDateAndBase } from '../../../API/GET/exchange';
 import { calcMonth } from '../../../functions/functions';
 
-const CoverterTable = ({ currencyOptions }) => {
+const CoverterTable = () => {
     console.log('[CoverterTable.js] rerenders')
-    const [selectedDate, handleDateChange] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const [CurreciesRates, setCurreciesRates] = useState({
         pickedBase: "ILS",
         latestRate: {},
@@ -16,15 +16,19 @@ const CoverterTable = ({ currencyOptions }) => {
         isLoading: true,
         latestDate: ""
     });
+    const [isHaveError, setIsHaveError] = useState(false);
     useEffect(() => {
         let latestDate, latestRate;
         const pickedDate = selectedDate.getFullYear() + "-" + calcMonth(selectedDate.getMonth() + 1) + "-" + calcMonth(selectedDate.getDate());
         const DateBeforeLates = selectedDate.getFullYear() + "-" + calcMonth(selectedDate.getMonth() + 1) + "-" + calcMonth(selectedDate.getDate() - 1);
         if (!CurreciesRates.isLoading)
-        setCurreciesRates({ ...CurreciesRates, isLoading: false});
+            setCurreciesRates({ ...CurreciesRates, isLoading: false });
 
         ExchangeByDateAndBase(pickedDate, CurreciesRates.pickedBase)
             .then(currencies => {
+                if (currencies?.error) {
+                    throw new Error(currencies?.error)
+                }
                 const currenciesList = currencies.rates;
                 Object.keys(currenciesList).forEach(currency => currenciesList[currency] = 1 / currenciesList[currency]);
                 latestDate = currencies.date;
@@ -36,13 +40,23 @@ const CoverterTable = ({ currencyOptions }) => {
                 Object.keys(pastCurrenciesList).forEach(currency => pastCurrenciesList[currency] = 1 / pastCurrenciesList[currency]);
                 setCurreciesRates({ ...CurreciesRates, isLoading: false, yesterdayRate: { ...pastCurrenciesList }, latestDate, latestRate });
             })
+            .catch((err) => {
+                setIsHaveError(true);
+            })
     }, [selectedDate])
+    const handleDateChange = (e) => {
+        setSelectedDate(e);
+        setIsHaveError(false);
+    }
     if (CurreciesRates.isLoading)
         return <Loading />
     return (
         <div className={styles.slideInBckCenterTable}>
             <DatePickerCurr
-                handleDateChange={(e) => handleDateChange(e)} date={selectedDate} />
+                handleDateChange={(e) => handleDateChange(e)}
+                setIsErrorFalse={() => setIsHaveError(false)}
+                date={selectedDate}
+                isHaveError={isHaveError} />
             <TableComp
                 CurreciesRates={CurreciesRates}
                 latestRate={CurreciesRates.latestRate}
