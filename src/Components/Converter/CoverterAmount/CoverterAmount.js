@@ -5,6 +5,7 @@ import CurrencyRow from '../CurrencyRow/CurrencyRow';
 import Loading from '../../Loading/Loading';
 import SwitchBetweenCurrecy from '@material-ui/icons/SyncAlt';
 import { TodayExchangeRateByBaseAndSymbol } from '../../../API/GET/exchange';
+import LoadingComp from '../../LoadingComp/LoadingComp';
 const CoverterAmount = ({ currencyOptions = [] }) => {
     console.log('[CoverterAmount.js] rerender')
     const [amountData, setAmountData] = useState({
@@ -52,7 +53,7 @@ const CoverterAmount = ({ currencyOptions = [] }) => {
             setAmountData({ ...amountData, fromCurrency: amountData.toCurrency, toCurrency: amountData.fromCurrency, isSwitchedPlaces: false })
     }
     if (isLoading)
-        return <Loading />
+        return <LoadingComp/>
     return (
         <div className={styles.coverterCurrencies}>
             <CurrencyRow
