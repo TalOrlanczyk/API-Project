@@ -4,28 +4,33 @@ import { SpaceXNextLaunche } from '../../API/GET/spacex';
 import LoadingComp from '../LoadingComp/LoadingComp';
 import { LaunchPad } from '../../API/POST/spacexPost';
 import LauncheDetail from './LauncheDetail/LauncheDetail';
+import WithLoading from '../../HoC/WithLoading/WithLoading';
+const SpaceXLaunchedDetail = WithLoading(LauncheDetail)
 const Spacex = () => {
-    const [upComingLaunches, setUpComingLaunches] = useState({});
-    const [Launchpad, setLaunchpad] = useState({})
-    const [isLoading, setIsLoading] = useState(true);
+    console.log('[Spacex.js] rerender');
+    const [upComingLaunchesData, setUpComingLaunchesData] = useState({
+        upComingLaunches: {},
+        Launchpad: {},
+        isLoading: true
+    });
     useEffect(() => {
-        let tempData;
+        let tempLaunche;
         SpaceXNextLaunche()
             .then(data => {
-                setUpComingLaunches(data);
-                tempData = data;
+                tempLaunche = data;
                 return LaunchPad()
             }).then(dataLaunch => {
                 const foundTheLaunch = dataLaunch.docs.filter((Launch, index) => {
-                    return tempData.id === Launch.id
+                    return tempLaunche.id === Launch.id
                 });
-                setLaunchpad({...foundTheLaunch[0]});
-                setIsLoading(false);
+                setUpComingLaunchesData({ ...upComingLaunchesData, Launchpad: { ...foundTheLaunch[0] }, isLoading: false, upComingLaunches: tempLaunche })
             })
     }, [])
-    if (isLoading) return <LoadingComp />
     return (
-        <LauncheDetail Launchpad={Launchpad} upComingLaunches={upComingLaunches}/>
+        <SpaceXLaunchedDetail
+            isLoading={upComingLaunchesData.isLoading}
+            Launchpad={upComingLaunchesData.Launchpad}
+            upComingLaunches={upComingLaunchesData.upComingLaunches} />
     )
 }
 export default Spacex;

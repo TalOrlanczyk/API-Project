@@ -53,7 +53,7 @@ const CoverterAmount = ({ currencyOptions = [] }) => {
             setAmountData({ ...amountData, fromCurrency: amountData.toCurrency, toCurrency: amountData.fromCurrency, isSwitchedPlaces: false })
     }
     if (isLoading)
-        return <LoadingComp/>
+        return <LoadingComp />
     return (
         <div className={styles.coverterCurrencies}>
             <CurrencyRow
