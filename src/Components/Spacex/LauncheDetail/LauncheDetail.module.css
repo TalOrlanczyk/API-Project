@@ -1,0 +1,69 @@
+@import '../../../App.css';
+@media only screen and (max-width: 960px) {
+
+    .badge{
+        width: 5vw;
+        height: 5vh;
+    }
+    .CountDownCard {
+        width: 80vw;
+        height: 18vh;
+    }
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+
+    .badge{
+        width: 3vw;
+        height: 5vh;
+    }
+    .CountDownCard {
+        width: 50vw;
+        height: 18vh;
+    }
+}
+@media only screen and (max-width: 430px) {
+
+    .badge{
+        width: 10vw;
+        height: 5vh;
+    }
+    .CountDownCard {
+        width: 80vw;
+        height: 30vh;
+    }
+}
+.dataOfMission,.title,.MissionName,.spanWarrper{
+    composes: TextAlignCenter from '../../../styles/GlobalStyles.module.css';
+}
+.CountDownWarrper{
+    composes: FlexCenter from '../../../styles/GlobalStyles.module.css';
+    margin-top: 5vh;
+}
+.spanWarrper {
+    font-size: 3vh;
+}
+
+.CountDownSpan,.title,.MissionName{
+    composes: TextColor from '../../../styles/GlobalStyles.module.css'
+}
+.gridBadges{
+    width: 100%;
+    height: 10vh;
+    display: grid;
+    grid-template: "CountDown Badge"/1fr .1fr;
+}
+.MissionName{
+    font-size: 25px;
+}
+.CountDown{
+    grid-area: CountDown;
+    margin: auto;
+}
+
+.badgeFlex{
+    grid-area: Badge;
+    padding: 1vh;
+    justify-content: flex-end;
+    display: flex;
+}
+

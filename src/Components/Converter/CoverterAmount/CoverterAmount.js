@@ -54,7 +54,7 @@ const CoverterAmount = ({ currencyOptions = [] }) => {
     if (isLoading)
         return <Loading />
     return (
-        <div className={styles.coverterMain}>
+        <div className={styles.coverterCurrencies}>
             <CurrencyRow
                 currencyOptions={currencyOptions}
                 selectedCurrency={amountData.fromCurrency}

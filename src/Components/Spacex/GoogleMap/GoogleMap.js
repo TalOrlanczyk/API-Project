@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import GoogleMapComp from './GoogleMapComp/GoogleMapComp';
 import GoogleMapActions from './GoogleMapActions/GoogleMapActions';
+import PropTypes from 'prop-types';
 const GoogleMap = ({ mapVisiblity, open = false, placeName = "" }) => {
     const googleMapRef = useRef();
     const [GoogleMapInfo, setGoogleMapInfo] = useState({
@@ -61,5 +62,10 @@ const GoogleMap = ({ mapVisiblity, open = false, placeName = "" }) => {
                 : null}
         </div>
     )
+}
+GoogleMap.prototype = {
+    open: PropTypes.bool.isRequired,
+    mapVisiblity: PropTypes.func.isRequired,
+    placeName: PropTypes.string.isRequired
 }
 export default GoogleMap;

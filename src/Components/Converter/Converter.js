@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
-import './Converter.css';
 import styles from './Converter.module.css'
 import CoverterAmount from './CoverterAmount/CoverterAmount';
 import CoverterTable from './CoverterTable/CoverterTable';
-import Loading from '../Loading/Loading';
 import useLatestCurrecny from '../../customHooks/useLatestCurrecny';
-const Converter = () => {
-    const [currencyOptions,isLoading] = useLatestCurrecny();
-    if (isLoading)
-        return <Loading />
+import WithLoading from '../../HoC/WithLoading/WithLoading';
+const ConverterMain = ({currencyOptions}) => {
     return (
         <div className={styles.converterWarrper}>
             <div className={styles.title}>
@@ -16,9 +12,17 @@ const Converter = () => {
             </div>
             <CoverterAmount 
                 currencyOptions={currencyOptions}/>
-            <CoverterTable 
-                currencyOptions={currencyOptions} />
+            <CoverterTable />
         </div>
+    )
+}
+const ConverterData = WithLoading(ConverterMain);
+const Converter = () => {
+    const [currencyOptions,isLoading] = useLatestCurrecny();
+    return (
+        <ConverterData
+            isLoading={isLoading}
+            currencyOptions={currencyOptions}/>
     )
 }
 export default Converter

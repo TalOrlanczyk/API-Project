@@ -11,7 +11,7 @@ const CountDownClock = ({ upComingLaunches }) => {
             let minutes = Math.floor((launche / 1000 / 60) % 60);
             let hours = Math.floor((launche / (1000 * 60 * 60)) % 24);
             let days = Math.floor(launche / (1000 * 60 * 60 * 24));
-            setCountDown("T" + "- " + days + " : " + hours + " : " + minutes + " : " + seconds);
+            setCountDown("T - " + days + " : " + hours + " : " + minutes + " : " + seconds);
         
     }
     useInterval(() => {

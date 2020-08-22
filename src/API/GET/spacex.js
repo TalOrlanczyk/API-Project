@@ -9,3 +9,11 @@ const get = async (url) => (
 )
 export const SpaceXNextLaunche = () => get(`${SpaceXBaseUrlLaunches}/next`);
 export const SpaceXPastLaunches = () => get(`${SpaceXBaseUrlLaunches}/past`);
+export const getData = () => {
+    return new Promise(reslove => {
+      setTimeout(() => {
+        reslove("My Data");
+      }, 3000);
+    });
+  };
+  

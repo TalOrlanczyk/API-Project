@@ -1,4 +1,4 @@
-.coverterMain{
+.coverterCurrencies{
   margin: 0;
   composes: FlexCenter from '../../../styles/GlobalStyles.module.css';
   composes: TextAlignCenter from '../../../styles/GlobalStyles.module.css';
