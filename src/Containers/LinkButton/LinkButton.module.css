@@ -1,0 +1,22 @@
+@import '../../App.css';
+.Link{
+    border-radius: 8px;
+    text-decoration: var(--link-no-decoration);
+    width: var(--link-width);
+    display: var(--display-link-as-button);
+    height: var(--link-hieght);
+    background: var(--link-background);
+    padding: 0;
+    text-align: center;
+    border-radius: var(--link-border-radius);
+    color: var(--link-text-color);
+    font-weight: bold;
+}
+.Link:hover {
+    background-color: var(--hover-overlay);
+}
+.Wrappper{
+    width:30vw;
+    display: flex;
+    justify-content: center;
+}

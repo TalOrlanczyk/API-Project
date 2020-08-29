@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { HashRouter, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+const theme = localStorage.getItem("theme");
+const element = document.getElementById("API");
+if(theme === 'darkmode') {
 
+  element.classList.add("darkmode");
+}
 ReactDOM.render(
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />

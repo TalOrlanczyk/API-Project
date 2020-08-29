@@ -1,22 +1,24 @@
 import React from 'react';
 import './CovertLink.css';
-import { Link } from 'react-router-dom';
+import LinkButton from '../../../Containers/LinkButton/LinkButton';
+import LinkButtonWrapper from '../../../Containers/LinkButtonWrapper/LinkButtonWrapper';
+import IconWrapper from '../IconWrapper/IconWrapper';
 
 const CovertLink = () => {
     return (
-        <div className="convertor">
-            <div className="coin-flip">
-                <div className="coin-flip-inner">
-                    <div className="front-coin"></div>
-                    <div className="back-coin"></div>
+        <LinkButtonWrapper className="convertor">
+            <IconWrapper>
+                <div className="coin-flip">
+                    <div className="coin-flip-inner">
+                        <div className="front-coin"></div>
+                        <div className="back-coin"></div>
+                    </div>
                 </div>
-            </div>
-            <div className="converter-link-padd">
-                <Link to="/Converter" className="converter-link">
-                    Convertor
-                </Link>
-            </div>
-        </div>
+            </IconWrapper>
+            <LinkButton to="/Converter">
+                Convertor
+            </LinkButton>
+        </LinkButtonWrapper>
 
     )
 }
