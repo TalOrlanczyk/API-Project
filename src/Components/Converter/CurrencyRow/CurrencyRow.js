@@ -4,7 +4,6 @@ import styles from './CurrencyRow.module.css'
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
 import ListItems from '../../../Containers/ListItems/ListItems';
-import ListItem from '../../../Containers/ListItem/ListItem';
 
 const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onChangeAmount, amount, compereCurreny }) => {
     console.log('[CurrencyRow.js] rerender')
@@ -18,15 +17,16 @@ const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onCh
 
     return (
         <div className={styles.Currecy}>
-            <ListItems open={open} setOpen={()=> setOpen(!open)}>
-                <div className={[styles.MoneyValue,styles.listItem].join(" ")} >{selectedCurrency}<ArrowDownwardIcon className={styles.arrowdown} /></div>
+            <ListItems open={open} setOpen={()=> setOpen(!open)} value={selectedCurrency} onChangeCurrency={(option) => onChangeCurrency(option)}>
+                <ListItems.Picked selectedCurrency={selectedCurrency}></ListItems.Picked>
                 <ul className={styles.list} ref={open ? wrapperRef : null} >
-                    {currencyOptions
+
+                    {open && currencyOptions
                         .filter(currency => currency !== compereCurreny)
                         .map((option) =>
-                            <ListItem key={option} option={option}  selectedCurrency={selectedCurrency}  onChangeCurrency={(e) => onChangeCurrency(option)}>
+                            <ListItems.Item key={option} option={option}  selectedCurrency={selectedCurrency}  onChangeCurrency={(e) => onChangeCurrency(option)}>
                                 <span>{option}</span>
-                            </ListItem>
+                            </ListItems.Item>
                         )
                     }
                 </ul>

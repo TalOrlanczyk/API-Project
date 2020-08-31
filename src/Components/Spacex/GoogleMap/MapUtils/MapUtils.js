@@ -2,9 +2,9 @@ import { GoogleMapsUrl } from "../../../../Utils/ConstValues";
 
 
 export const LoadGoogleMap = () => {
-    const googleMapScript = document.createElement('script')
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}&libraries=places`
-    googleMapScript.async = true
+    const googleMapScript = document.createElement('script');
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}&libraries=places&language=en`;
+    googleMapScript.async = true;
     window.document.body.appendChild(googleMapScript);
     return googleMapScript;
 }

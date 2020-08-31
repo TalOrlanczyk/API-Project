@@ -37,7 +37,7 @@ const GoogleMap = ({ mapVisiblity, open = false, placeName = "" }) => {
     const getLatLng = () => {
         let lat, lng, placeId;
         new window.google.maps.Geocoder().geocode({ 'address': `${placeName}` }, function (results, status) {
-            if (status == window.google.maps.GeocoderStatus.OK) {
+            if (status === window.google.maps.GeocoderStatus.OK) {
                 placeId = results[0].place_id;
                 createGoogleMap(results[0].geometry.location);
                 lat = results[0].geometry.location.lat();

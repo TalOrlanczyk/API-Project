@@ -1,0 +1,7 @@
+.MoneyValue{
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    cursor: pointer;
+}
