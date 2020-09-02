@@ -1,28 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Converter.module.css'
-import CoverterAmount from './CoverterAmount/CoverterAmount';
-import CoverterTable from './CoverterTable/CoverterTable';
 import useLatestCurrecny from '../../customHooks/useLatestCurrecny';
 import WithLoading from '../../HoC/WithLoading/WithLoading';
-const ConverterMain = ({currencyOptions}) => {
+import ConverterTableContainer from './CoverterTable/ConverterTableWithLoading/ConverterTableContainer/ConverterTableContainer';
+import ConverterAmountContainer from './ConverterAmount/ConverterAmountContainer/ConverterAmountContainer';
+const ConverterLatestData = WithLoading(ConverterAmountContainer);
+const Converter = () => {
+    const [currencyOptions,isLoading] = useLatestCurrecny();
     return (
         <div className={styles.converterWarrper}>
             <div className={styles.title}>
                 <h1 className={styles.ConverterHeader}>Convert</h1>
             </div>
-            <CoverterAmount 
+            <ConverterLatestData
+                isLoading={isLoading}
                 currencyOptions={currencyOptions}/>
-            <CoverterTable />
+            <ConverterTableContainer/>
         </div>
-    )
-}
-const ConverterData = WithLoading(ConverterMain);
-const Converter = () => {
-    const [currencyOptions,isLoading] = useLatestCurrecny();
-    return (
-        <ConverterData
-            isLoading={isLoading}
-            currencyOptions={currencyOptions}/>
     )
 }
 export default Converter

@@ -1,4 +1,3 @@
-import { MobileGoogleMap, GoogleMapsUrl } from "../Utils/ConstValues";
 const chartConfig = {
     type: "line",
     data: {},
@@ -44,9 +43,10 @@ export const ChartConfigByType = (chartType) => {
 export const GraphThemeLine = () => {
     let theme;
     if (IsMobile())
-        return theme = { width: "80vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" };
+         theme = { width: "80vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" };
     else
-        return theme = { width: "50vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" };
+        theme = { width: "50vw", height: "40vh", boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),1px 1px 1px 0px rgba(0,0,0,0.14)" };
+    return theme;
 };
 
 export  const classDailyChange = (option) => {
@@ -54,3 +54,17 @@ export  const classDailyChange = (option) => {
     else if (option < 0) return "negative";
     else return "same";
 };
+export const amountConverter = (isSwitchedPlaces = false , amountInFromCurrency = true, amount = 1,exchangeRate = 1) => {
+    let fromAmount,toAmount;
+    if (isSwitchedPlaces) {
+        fromAmount = amount;
+        toAmount = amount / exchangeRate;
+    } else if (amountInFromCurrency) {
+        fromAmount = amount;
+        toAmount = amount * exchangeRate;
+    } else {
+        toAmount = amount;
+        fromAmount = amount / exchangeRate;
+    }
+    return {toAmount,fromAmount};
+}

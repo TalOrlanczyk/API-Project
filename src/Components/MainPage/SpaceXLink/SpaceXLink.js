@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { SpaceX } from '../../../svg/svgs'
 import LinkButtonWrapper from '../../../Containers/LinkButtonWrapper/LinkButtonWrapper';
 import LinkButton from '../../../Containers/LinkButton/LinkButton';
@@ -17,7 +16,5 @@ const SpaceXLink = (props) => {
     )
 
 }
-SpaceXLink.propTypes = {
-};
 
 export default SpaceXLink;

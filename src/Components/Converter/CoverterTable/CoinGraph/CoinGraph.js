@@ -25,6 +25,7 @@ const CoinGraph = ({ latestDate, pickData, closeGraph }) => {
                 setChartData({ ...ChartData, datasets: [Dataset], labels: labels });
                 window.scrollTo(0, document.body.scrollHeight);
             })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pickData]);
     return (
         <div className={styles.coinGraphContainer}>

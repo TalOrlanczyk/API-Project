@@ -1,0 +1,4 @@
+@import '../../../App.css';
+.tableBody{
+    background-color: var(--table-background);
+}

@@ -1,18 +1,18 @@
 import React from 'react';
+import styles from './Body.module.css'
 import PropTypes from 'prop-types';
-const ActionsBar = ({className,...props}) => {
+const Body = (props) => {
     return (
-        <div className={className}> 
+        <tbody className={styles.tableBody}>
             {props.children}
-        </div>
+        </tbody>
     )
 }
-ActionsBar.propTypes = {
-    className: PropTypes.string.isRequired,
+Body.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired
 };
 
-export default ActionsBar;
+export default Body;

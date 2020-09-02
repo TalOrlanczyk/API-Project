@@ -23,6 +23,7 @@ const GoogleMap = ({ mapVisiblity, open = false, placeName = "" }) => {
         else if (googleMapRef.current && GoogleMapInfo.googleMap) {
             getLatLng()
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [open]);
     const createGoogleMap = (coordinates) => {
         googleMap = new window.google.maps.Map(googleMapRef.current, {

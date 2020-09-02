@@ -9,6 +9,11 @@ const LinkButtonWrapper = ({className,...props}) => {
     )
 }
 LinkButtonWrapper.propTypes = {
+    className: PropTypes.string.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired
 };
 
 export default LinkButtonWrapper;

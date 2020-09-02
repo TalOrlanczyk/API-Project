@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { TodayExchangeRate } from '../API/GET/exchange';
   
 const useLatestCurrecny = () => {
@@ -8,7 +8,6 @@ const useLatestCurrecny = () => {
     useEffect(()=> {
         TodayExchangeRate()
              .then(data => {
-                 const firstCurrency = Object.keys(data.rates)[0]
                  let options = [data.base, ...Object.keys(data.rates)];
                  setCurrencyOptions(options);
                  setIsLoading(false)

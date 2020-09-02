@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-const ActionsBar = ({className,...props}) => {
+const Data = (props) => {
     return (
-        <div className={className}> 
+        <td className={props.className} colSpan={props.colSpan}>
             {props.children}
-        </div>
+        </td>
     )
 }
-ActionsBar.propTypes = {
-    className: PropTypes.string.isRequired,
+Data.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired
 };
 
-export default ActionsBar;
+export default Data;

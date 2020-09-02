@@ -1,4 +1,5 @@
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import styles from './ListItems.module.css';
 import Item from './Item/Item';
 import PickedItem from './pickedItem/pickedItem';
@@ -25,4 +26,10 @@ const ListItems = memo((props) => {
     })
 ListItems.Item = Item;
 ListItems.Picked = PickedItem;
+ListItems.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired
+};
 export default ListItems;

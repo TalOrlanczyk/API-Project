@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Spacex.module.css'
 import { SpaceXNextLaunche } from '../../API/GET/spacex';
-import LoadingComp from '../LoadingComp/LoadingComp';
 import { LaunchPad } from '../../API/POST/spacexPost';
 import LauncheDetail from './LauncheDetail/LauncheDetail';
 import WithLoading from '../../HoC/WithLoading/WithLoading';
@@ -25,6 +23,7 @@ const Spacex = () => {
                 });
                 setUpComingLaunchesData({ ...upComingLaunchesData, Launchpad: { ...foundTheLaunch[0] }, isLoading: false, upComingLaunches: tempLaunche })
             })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <SpaceXLaunchedDetail

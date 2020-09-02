@@ -1,6 +1,7 @@
 import React from 'react';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import './TableBody.css';
+import Table from '../../../../../Containers/Table/Table';
 
 const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph,pickedBase }) => {
     console.log('[TableBody.js] rerender')
@@ -15,7 +16,7 @@ const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph,pickedBase }) => 
         let howFarFromhundred = 100 - precentege;
         let noneDecimel = howFarFromhundred.toString().split(".")[0];
         let onlythreedecimel = howFarFromhundred.toString().split(".")[1];
-        if (onlythreedecimel != undefined) {
+        if (onlythreedecimel !== undefined) {
 
             onlythreedecimel = onlythreedecimel.substring(0, 3);
             if (onlythreedecimel.length === 2)
@@ -29,21 +30,21 @@ const TableBody = ({ latestRate, yesterdayRate,PickDataToGraph,pickedBase }) => 
         return noneDecimel + "." + onlythreedecimel;
     }
     return (
-        <tbody className="tableBody">
+        <>
             {Object.entries(latestRate)
                 .filter(latest => latest[0] !== pickedBase)
                 .map((option) =>
-                    <tr key={option[0]}>
-                        <td className="text-color">{option[0]}</td>
-                        <td className="text-color">{option[1]}</td>
-                        <td className={classDailyChange(dailyChange(option))}>{Math.abs(dailyChange(option)) + "%"}</td>
-                        <td><TrendingUpIcon className="icon-color" onClick={(e) => {
+                    <Table.Row key={option[0]}>
+                        <Table.Data className="text-color"><span>{option[0]}</span></Table.Data>
+                        <Table.Data className="text-color"><span>{option[1]}</span></Table.Data>
+                        <Table.Data className={classDailyChange(dailyChange(option))}><span>{Math.abs(dailyChange(option)) + "%"}</span></Table.Data>
+                        <Table.Data><TrendingUpIcon className="icon-color" onClick={(e) => {
                             PickDataToGraph(e, option[0])
-                        }} /></td>
-                    </tr>
+                        }} /></Table.Data>
+                    </Table.Row>
 
                 )}
-        </tbody>
+        </>
     )
 }
 export default TableBody;

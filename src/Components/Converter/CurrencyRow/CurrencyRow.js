@@ -1,7 +1,6 @@
 import 'date-fns';
-import React, { useState, useRef, memo } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './CurrencyRow.module.css'
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
 import ListItems from '../../../Containers/ListItems/ListItems';
 

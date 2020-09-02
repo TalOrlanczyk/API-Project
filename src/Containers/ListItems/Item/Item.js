@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import styles from './ListItem.module.css';
+import PropTypes from 'prop-types';
 import { ListItemContext } from '../../../Componet Context/ListItemContext';
 const Item = (props) => {
     const { activeItem, handleClick } = useContext(ListItemContext);
@@ -12,5 +13,10 @@ const Item = (props) => {
         </>
     )
 }
-
+Item.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ]).isRequired
+};
 export default Item

@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-const ActionsBar = ({className,...props}) => {
+const Row = (props) => {
     return (
-        <div className={className}> 
+        <tr className={props.className}>
             {props.children}
-        </div>
+        </tr>
     )
 }
-ActionsBar.propTypes = {
-    className: PropTypes.string.isRequired,
+Row.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired
 };
 
-export default ActionsBar;
+export default Row;
