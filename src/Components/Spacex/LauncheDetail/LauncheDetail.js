@@ -23,7 +23,7 @@ const LauncheDetail = ({ upComingLaunches = {}, Launchpad = {}, LaunchData = {} 
                                 open={open}
                                 placeName={Launchpad.launchpad.full_name} />
                         </Card>
-                        : <h1>no upcoming launches</h1>}
+                        : <Card className={styles.NoLaunchCard}><span className={styles.NoLaunchSpan}>no upcoming launches</span></Card>}
                 </div>
             </div>
         </div>

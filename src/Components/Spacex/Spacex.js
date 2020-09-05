@@ -16,14 +16,22 @@ const Spacex = () => {
         SpaceXNextLaunche()
             .then(data => {
                 tempLaunche = data;
-                return LaunchPad()
+                return LaunchPad();
             }).then(dataLaunch => {
+
+
                 const foundTheLaunch = dataLaunch.docs.filter((Launch, index) => {
                     return tempLaunche.id === Launch.id
                 });
-                setUpComingLaunchesData({ ...upComingLaunchesData, Launchpad: { ...foundTheLaunch[0] }, isLoading: false, upComingLaunches: tempLaunche })
+                let currentDate = new Date();
+                let NextLaunch = new Date(foundTheLaunch.date_local);
+                if (currentDate < NextLaunch)
+                    setUpComingLaunchesData({ ...upComingLaunchesData, Launchpad: { ...foundTheLaunch[0] }, isLoading: false, upComingLaunches: tempLaunche })
+
+                setUpComingLaunchesData({ ...upComingLaunchesData, isLoading: false })
+
             })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <SpaceXLaunchedDetail

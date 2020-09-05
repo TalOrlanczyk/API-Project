@@ -5,7 +5,7 @@
         width: 5vw;
         height: 5vh;
     }
-    .CountDownCard {
+    .CountDownCard,.NoLaunchCard {
         width: 80vw;
         height: 18vh;
     }
@@ -16,7 +16,7 @@
         width: 3vw;
         height: 5vh;
     }
-    .CountDownCard {
+    .CountDownCard,.NoLaunchCard {
         width: 50vw;
         height: 18vh;
     }
@@ -27,12 +27,12 @@
         width: 10vw;
         height: 5vh;
     }
-    .CountDownCard {
+    .CountDownCard,.NoLaunchCard {
         width: 80vw;
         height: 30vh;
     }
 }
-.dataOfMission,.title,.MissionName,.spanWarrper{
+.dataOfMission,.title,.MissionName,.spanWarrper,.NoLaunchSpan{
     composes: TextAlignCenter from '../../../styles/GlobalStyles.module.css';
 }
 .CountDownWarrper{
@@ -66,4 +66,12 @@
     justify-content: flex-end;
     display: flex;
 }
-
+.NoLaunchCard{ 
+    font-size: 40px;
+    text-align: center;
+}
+.NoLaunchSpan{
+    composes: FlexCenter from '../../../styles/GlobalStyles.module.css';
+    height: 100%;
+    width: 100%;
+}

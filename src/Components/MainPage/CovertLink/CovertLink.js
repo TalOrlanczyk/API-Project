@@ -1,19 +1,15 @@
 import React from 'react';
-import './CovertLink.css';
+import styles from './CovertLink.module.css'
 import LinkButton from '../../../Containers/LinkButton/LinkButton';
 import LinkButtonWrapper from '../../../Containers/LinkButtonWrapper/LinkButtonWrapper';
 import IconWrapper from '../IconWrapper/IconWrapper';
+import Coin from '../../../Icons/Coin/Coin';
 
 const CovertLink = () => {
     return (
-        <LinkButtonWrapper className="convertor">
+        <LinkButtonWrapper className={styles.convertor}>
             <IconWrapper>
-                <div className="coin-flip">
-                    <div className="coin-flip-inner">
-                        <div className="front-coin"></div>
-                        <div className="back-coin"></div>
-                    </div>
-                </div>
+                <Coin/>
             </IconWrapper>
             <LinkButton to="/Converter">
                 Convertor

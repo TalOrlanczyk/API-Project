@@ -1,24 +1,6 @@
 import React from 'react';
 import './svgs.css'
 
-export const Pokeball = () => {
-    return (
-        <div>
-            <span className="middle">
-                <svg className="Icon-root" viewBox="0 0 32 32" stroke="none">
-                    <path id="red" d="M2,16 a 6 6 0 0 1 28 0 Z" />
-                    <path id="blue" d="M2,16 a 6 6 0 0 0 28 0 Z" />
-                    <path id="white" d="M2,16 a 6 6 0 0 0 28 0 Z" fill="white" />
-                    <line x1="2" y1="16" x2="30" y2="16" stroke="black" />
-                    <circle cx="16" cy="16" r="5" fill="grey" stroke="black" />
-                    <circle cx="16" cy="16" r="3" fill="white" stroke="black" />
-                    <circle cx="16" cy="16" r="14" fill="none" stroke="black" />
-                </svg>
-            </span>
-
-        </div>
-    )
-}
 export const SpaceX = () => {
     return (
         <svg className="Icon-root-spacex" viewBox="0 0 331.644 40.825" stroke="none">>
@@ -74,4 +56,3 @@ export const HexagonHole = () => {
         </div>
     )
 }
-// export default Pokeball;

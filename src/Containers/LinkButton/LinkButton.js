@@ -13,7 +13,7 @@ const LinkButton = ({ to, className, children}) => {
 }
 LinkButton.propTypes = {
     to: PropTypes.string.isRequired,
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
