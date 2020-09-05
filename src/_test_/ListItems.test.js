@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import {  mount } from 'enzyme';
 import ListItems from '../Containers/ListItems/ListItems';
 import Item from '../Containers/ListItems/Item/Item';
 import { fireEvent } from '@testing-library/react';
@@ -43,11 +43,5 @@ describe('<ListItems />', () => {
         expect(wrapper.find('.list').exists()).not.toBeTruthy();
 
     });
-    it('check if press outside of the list close it', ()=>{
-        fireEvent(body, new MouseEvent('mousedown', {
-            bubbles: true,
-            cancelable: true,
-          }));
-          expect(wrapper.find('.list').exists()).not.toBeTruthy();
-    })
+    
 });

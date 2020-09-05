@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import ThemeFuncMobile from './ThemeFuncMobile/ThemeFuncMobile';
 import { SpaceX } from '../../../svg/svgs';
 import AppsRoundedIcon from '@material-ui/icons/AppsRounded';
-import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
+import useOutsideClick from '../../../customHooks/useOutsideClick';
 
 const NavigatorMobile = () => {
     const [open, setOpen] = useState(false);

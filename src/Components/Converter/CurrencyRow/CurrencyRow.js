@@ -1,7 +1,7 @@
 import 'date-fns';
 import React, { useState, useRef } from 'react';
 import styles from './CurrencyRow.module.css'
-import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
+import useOutsideClick from '../../../customHooks/useOutsideClick';
 import ListItems from '../../../Containers/ListItems/ListItems';
 import PropTypes from 'prop-types';
 const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onChangeAmount, amount, compereCurrency }) => {
@@ -9,10 +9,7 @@ const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onCh
     const [open, setOpen] = useState(false);
     const wrapperRef = useRef(null);
 
-    useOutsideClick(wrapperRef, () => {
-        if (open)
-            setOpen(false)
-    });
+    useOutsideClick(wrapperRef, () => setOpen(!open));
 
     return (
         <div className={styles.Currecy}>

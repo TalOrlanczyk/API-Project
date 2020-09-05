@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { ListItemContext } from '../../../Componet Context/ListItemContext';
 const Item = (props) => {
     const { activeItem, handleClick } = useContext(ListItemContext);
-   
-    console.log('[ListItem.js] rerender')
     return (
         <>
             <li className={activeItem === props.option ? [styles.listItem,styles.picked].join(" ") : styles.listItem} onClick={()=>handleClick(props.option)}>

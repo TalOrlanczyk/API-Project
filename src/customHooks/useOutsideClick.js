@@ -4,10 +4,9 @@ const useOutsideClick = (ref, callback) => {
   
   useEffect(() => {
     const handleClick = e => {
-      if (!ref.current && !ref.current.contains(e.target)) {
-         return;
+      if (ref.current && !ref.current.contains(e.target)) {
+         callback();
       }
-      callback();
     };
     document.addEventListener('mousedown', handleClick);
     document.addEventListener('touchstart', handleClick);
