@@ -8,6 +8,7 @@ const Data = (props) => {
     )
 }
 Data.propTypes = {
+    colSpan: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node

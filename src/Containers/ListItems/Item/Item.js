@@ -4,19 +4,17 @@ import PropTypes from 'prop-types';
 import { ListItemContext } from '../../../Componet Context/ListItemContext';
 const Item = (props) => {
     const { activeItem, handleClick } = useContext(ListItemContext);
+   
     console.log('[ListItem.js] rerender')
     return (
         <>
             <li className={activeItem === props.option ? [styles.listItem,styles.picked].join(" ") : styles.listItem} onClick={()=>handleClick(props.option)}>
-                {props.children}
+                <span>{props.option}</span>
             </li>
         </>
     )
 }
 Item.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ]).isRequired
+    option: PropTypes.string.isRequired
 };
 export default Item

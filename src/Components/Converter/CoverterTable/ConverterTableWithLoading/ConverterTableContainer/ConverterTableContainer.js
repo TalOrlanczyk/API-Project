@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import useExchangeByDateAndBase from '../../../../../customHooks/useExchangeByDateAndBase';
 import CoverterTable from '../../CoverterTable';
 import WithLoading from '../../../../../HoC/WithLoading/WithLoading';

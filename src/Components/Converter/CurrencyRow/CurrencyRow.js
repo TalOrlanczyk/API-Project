@@ -3,8 +3,8 @@ import React, { useState, useRef } from 'react';
 import styles from './CurrencyRow.module.css'
 import useOutsideClick from '../../../Utils/useOutsideClick/useOutsideClick';
 import ListItems from '../../../Containers/ListItems/ListItems';
-
-const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onChangeAmount, amount, compereCurreny }) => {
+import PropTypes from 'prop-types';
+const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onChangeAmount, amount, compereCurrency }) => {
     console.log('[CurrencyRow.js] rerender')
     const [open, setOpen] = useState(false);
     const wrapperRef = useRef(null);
@@ -16,22 +16,29 @@ const CurrencyRow = ({ currencyOptions, selectedCurrency, onChangeCurrency, onCh
 
     return (
         <div className={styles.Currecy}>
-            <ListItems open={open} setOpen={()=> setOpen(!open)} value={selectedCurrency} onChangeCurrency={(option) => onChangeCurrency(option)}>
-                <ListItems.Picked selectedCurrency={selectedCurrency}></ListItems.Picked>
-                <ul className={styles.list} ref={open ? wrapperRef : null} >
-
-                    {open && currencyOptions
-                        .filter(currency => currency !== compereCurreny)
+            <ListItems
+                ref = {wrapperRef}
+                open={open}
+                setOpen={()=> setOpen(!open)} 
+                value={selectedCurrency} 
+                onChangeCurrency={(option) => onChangeCurrency(option)}>  
+                    {currencyOptions
+                        .filter(currency => currency !== compereCurrency)
                         .map((option) =>
-                            <ListItems.Item key={option} option={option}  selectedCurrency={selectedCurrency}  onChangeCurrency={(e) => onChangeCurrency(option)}>
-                                <span>{option}</span>
-                            </ListItems.Item>
+                            <ListItems.Item key={option} option={option}/>
                         )
                     }
-                </ul>
                 </ListItems>
             <input type="number" className={styles.moneyConver} value={amount} onChange={onChangeAmount} />
         </div>
     )
+}
+CurrencyRow.propTypes = {
+    currencyOptions: PropTypes.arrayOf(PropTypes.string).isRequired, 
+    selectedCurrency: PropTypes.string.isRequired,
+    onChangeCurrency: PropTypes.func.isRequired,
+    onChangeAmount: PropTypes.func.isRequired,
+    amount: PropTypes.number.isRequired, 
+    compereCurrency: PropTypes.string.isRequired,
 }
 export default CurrencyRow;
