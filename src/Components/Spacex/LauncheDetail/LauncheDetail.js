@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CountDownClock from '../CountDownClock/CountDownClock';
 import Card from '../../../Containers/Card/Card';
 import GoogleMap from '../GoogleMap/GoogleMap';
-const LauncheDetail = ({ upComingLaunches = {}, Launchpad = {}, LaunchData = {} }) => {
+const LauncheDetail = ({ Launchpad = {} }) => {
     const [open, setOpen] = useState(false);
     return (
         <div data-test-id="data">
@@ -30,7 +30,6 @@ const LauncheDetail = ({ upComingLaunches = {}, Launchpad = {}, LaunchData = {} 
     )
 }
 LauncheDetail.propTypes = {
-    upComingLaunches: PropTypes.object.isRequired,
     Launchpad: PropTypes.object.isRequired,
 };
 

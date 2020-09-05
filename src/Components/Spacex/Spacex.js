@@ -36,9 +36,9 @@ const Spacex = () => {
     return (
         <SpaceXLaunchedDetail
             isLoading={upComingLaunchesData.isLoading}
-            LaunchData={upComingLaunchesData.Launchpad, upComingLaunchesData.upComingLaunches}
+           
             Launchpad={upComingLaunchesData.Launchpad}
-            upComingLaunches={upComingLaunchesData.upComingLaunches} />
+           />
     )
 }
 export default Spacex;

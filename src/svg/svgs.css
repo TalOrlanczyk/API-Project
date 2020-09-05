@@ -42,6 +42,7 @@
     .TextSvg{
         font-size: 3vw;
         font-family: cursive;
+        fill: var(--link-text-color);
     }
     
 }
@@ -49,6 +50,7 @@
     .TextSvg{
         font-size: 6vw;
         font-family: cursive;
+        fill: var(--link-text-color);
     }   
 }
 @media only screen and (max-width: 430px) {
@@ -56,5 +58,13 @@
     .TextSvg{
         font-size: 15vw;
         font-family: cursive;
+        fill: var(--link-text-color);
     }
+}
+
+.GradientFirstStop {
+    stop-color:#a40606
+}
+.GradientSecondStop {
+    stop-color:#d98324 ;
 }

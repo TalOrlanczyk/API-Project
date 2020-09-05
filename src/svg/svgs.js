@@ -25,8 +25,8 @@ export const HexagonHole = () => {
             <svg version="1.1" width="100%" height="8vh" viewBox="-7 -7 270 270" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "hidden", position: "relative" }}>
                 <defs>
                     <linearGradient id="MyGradient">
-                        <stop offset="0%" stopColor=" #7f5a83" />
-                        <stop offset="74%" stopColor="#0d324d" />
+                        <stop className="GradientFirstStop"  offset="0%"/>
+                        <stop className="GradientSecondStop" offset="74%"/>
                     </linearGradient>
                 </defs>
                 <path fill="url(#MyGradient)" stroke="#000000" d="M190.354,164.27C158.81,182.239,127.26600000000002,
@@ -51,7 +51,7 @@ export const HexagonHole = () => {
                         121.22999999999999,211.704,131.242,206.001C152.124,194.10500000000002,173.006,182.21,193.88799999999998,170.315C197.808,168.081,
                         194.283,162.032,190.354,164.27Z" strokeWidth="0" strokeOpacity="1" > 
                 </path>
-                <text className="TextSvg" x="20%" y="50%" fill="black">API</text>
+                <text className="TextSvg" x="20%" y="50%" >API</text>
             </svg>
         </div>
     )
