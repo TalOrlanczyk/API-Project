@@ -1,46 +1,35 @@
-.fab-class{
+@import '../../../../App.css';
+.fabClass{
     background-color: var(--button-background) !important;
     color: rgba(0, 0, 0, 0.87) !important;
+    outline: 0;
+    border:0;
 }
 @media only screen and (max-width: 960px) {
 
-    .fab-class{
+    .fabClass{
         width: 56px !important;
-        height: 56px !important;
-        outline: 0;
-        border:0;
-        
+        height: 56px !important;       
     }
 }
 @media only screen and (min-width:961px)  and (max-width: 1920px) {
 
-    .fab-class{
+    .fabClass{
         width: 56px !important;
         height: 56px !important;
-        outline: 0;
-        border-radius: 50%;
-        border:0;
-        
+        border-radius: 50%;       
     }
 }
 @media only screen and (max-width: 430px) {
 
-    .fab-class{
+    .fabClass{
         width: 45px !important;
         height: 45px !important;
-        outline: 0;
         border-radius: 50%;
-        border:0;
-        
     }
 }
-.ThemeFunc-flex { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.ThemeFunc-icon{
-    color: var(--icon-color);
+.ConverterFlex { 
+    composes: FlexCenter from '../../../../styles/GlobalStyles.module.css';
 }
 .middle {
     width: 100%;

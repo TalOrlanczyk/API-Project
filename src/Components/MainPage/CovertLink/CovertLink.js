@@ -11,8 +11,8 @@ const CovertLink = () => {
             <IconWrapper>
                 <Coin/>
             </IconWrapper>
-            <LinkButton to="/Converter">
-                Convertor
+            <LinkButton to="/Converter"> 
+                Money Convertor
             </LinkButton>
         </LinkButtonWrapper>
 

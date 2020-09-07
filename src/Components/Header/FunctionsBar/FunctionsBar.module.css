@@ -1,6 +1,6 @@
-.funcBar-grid{
+.funcBarGrid{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     column-gap: 5%;
     row-gap: 2%;
 }

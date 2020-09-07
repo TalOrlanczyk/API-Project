@@ -1,13 +1,15 @@
 import React from 'react';
-import './FunctionsBar.css';
+import styles from './FunctionsBar.module.css';
 import ThemeFunc from './ThemeFunc/ThemeFunc';
+import ConverterLink from './ConverterLink/ConverterLink';
 
 
 const FunctionsBar = () => {
     console.log("func")
     return (
-        <div className="funcBar-grid">
+        <div className={styles.funcBarGrid}>
             <ThemeFunc/>
+            <ConverterLink/>
         </div>
     )
 }

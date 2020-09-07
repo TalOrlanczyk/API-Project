@@ -1,0 +1,7 @@
+.ConverterHeader{
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    margin-bottom: .5rem;
+    composes: TextColor from '../../styles/GlobalStyles.module.css';
+}

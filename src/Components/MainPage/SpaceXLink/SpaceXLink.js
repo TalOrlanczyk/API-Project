@@ -11,7 +11,7 @@ const SpaceXLink = (props) => {
                 <SpaceX />
             </IconWrapper>
             <LinkButton to="/SpaceX">
-                SpaceX
+                SpaceX Next Launch
             </LinkButton>
         </LinkButtonWrapper>
     )

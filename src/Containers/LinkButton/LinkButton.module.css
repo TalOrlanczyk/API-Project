@@ -1,19 +1,27 @@
 @import '../../App.css';
 .Link{
-    border-radius: 8px;
     text-decoration: var(--link-no-decoration);
-    width: var(--link-width);
     display: var(--display-link-as-button);
-    height: var(--link-hieght);
-    background: var(--link-background);
     padding: 0;
     text-align: center;
     border-radius: var(--link-border-radius);
-    color: var(--link-text-color);
     font-weight: bold;
+}
+.Size{
+    width: var(--link-width);
+    height: var(--link-hieght);
+}
+.Color{
+    color: var(--link-text-color);
+}
+.Background{
+    background: var(--link-background);
 }
 .Link:hover {
     background-color: var(--hover-overlay);
+}
+.borderRadius{
+    border-radius: 8px;
 }
 .Wrappper{
     width:30vw;

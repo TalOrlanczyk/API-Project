@@ -1,0 +1,42 @@
+@import '../../../../App.css';
+.fabClass{
+    background-color: var(--button-background) !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+    outline: 0;
+    border:0;
+}
+@media only screen and (max-width: 960px) {
+
+    .fabClass{
+        width: 56px !important;
+        height: 56px !important;       
+    }
+}
+@media only screen and (min-width:961px)  and (max-width: 1920px) {
+
+    .fabClass{
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 50%;       
+    }
+}
+@media only screen and (max-width: 430px) {
+
+    .fabClass{
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 50%;
+    }
+}
+.ThemeFuncFlex { 
+    composes: FlexCenter from '../../../../styles/GlobalStyles.module.css';
+}
+.ThemeFuncIcon{
+    color: var(--icon-color);
+}
+.middle {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: center;
+}

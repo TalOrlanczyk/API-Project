@@ -148,7 +148,7 @@ input::-webkit-inner-spin-button {
   --date-color: rgb(139, 209, 139);
   --date-color-input: rgba(255, 255, 255, 0.69);
   --event-color: rgb(248, 242, 242);
-  --hover-overlay:  rgba(255, 255, 255, 0.1);
+  --hover-overlay:  #1f6d82;
   --nav-bar-background:  #242526;
   --negative: hsl(350, 100%, 77%);
   --positive: #81c784;
@@ -162,7 +162,7 @@ input::-webkit-inner-spin-button {
   --shadow-5:  rgba(0, 0, 0, 0.5);
   --shadow-05:  rgba(82, 82, 82, 0.5);
   --web-background:  #18191A;
-  --link-background: #4E9CAF;
+  --link-background: #024c5f;
   --link-text-color: white;
   --link-no-decoration: none;
   --display-link-as-button:  block;

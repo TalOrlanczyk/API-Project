@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ThemeFunc.css';
+import styles from './ThemeFunc.module.css'
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import WithStorage from '../../../../HoC/withStorage';
@@ -31,17 +31,17 @@ const ThemeFunc = (props) => {
     }
 
     return (
-        <div className="ThemeFunc-flex">
+        <div className={styles.ThemeFuncFlex}>
             {!isDarkMode ?
-                <Fab className="fab-class" aria-label="Center Align" onClick={() => ChangeTheme()}>
-                    <span className="middle" aria-hidden="true">
-                        < Brightness4Icon className="ThemeFunc-icon" />
+                <Fab className={styles.fabClass} aria-label="Center Align" onClick={() => ChangeTheme()}>
+                    <span className={styles.middle} aria-hidden="true">
+                        < Brightness4Icon className={styles.ThemeFuncIcon} />
                     </span>
                 </Fab>
                 :
-                <Fab className="fab-class" aria-label="Center Align" onClick={() => ChangeTheme()}>
-                    <span className="middle" aria-hidden="true">
-                        < Brightness7Icon className="ThemeFunc-icon" />
+                <Fab className={styles.fabClass} aria-label="Center Align" onClick={() => ChangeTheme()}>
+                    <span className={styles.middle} aria-hidden="true">
+                        < Brightness7Icon className={styles.ThemeFuncIcon}  />
                     </span>
                 </Fab>
             }
