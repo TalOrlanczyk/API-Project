@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/API-Project/static/css/main.6deaff27.chunk.css",
-    "main.js": "/API-Project/static/js/main.253640a0.chunk.js",
-    "main.js.map": "/API-Project/static/js/main.253640a0.chunk.js.map",
+    "main.css": "/API-Project/static/css/main.112357de.chunk.css",
+    "main.js": "/API-Project/static/js/main.613fd94b.chunk.js",
+    "main.js.map": "/API-Project/static/js/main.613fd94b.chunk.js.map",
     "runtime-main.js": "/API-Project/static/js/runtime-main.0370f7e0.js",
     "runtime-main.js.map": "/API-Project/static/js/runtime-main.0370f7e0.js.map",
-    "static/js/2.9257a7a9.chunk.js": "/API-Project/static/js/2.9257a7a9.chunk.js",
-    "static/js/2.9257a7a9.chunk.js.map": "/API-Project/static/js/2.9257a7a9.chunk.js.map",
+    "static/js/2.a00190a1.chunk.js": "/API-Project/static/js/2.a00190a1.chunk.js",
+    "static/js/2.a00190a1.chunk.js.map": "/API-Project/static/js/2.a00190a1.chunk.js.map",
     "index.html": "/API-Project/index.html",
-    "precache-manifest.86ce3a144a5fc041679eeff3e6db1fe9.js": "/API-Project/precache-manifest.86ce3a144a5fc041679eeff3e6db1fe9.js",
+    "precache-manifest.7e988f43bbc0a8bfc17342bf974e3187.js": "/API-Project/precache-manifest.7e988f43bbc0a8bfc17342bf974e3187.js",
     "service-worker.js": "/API-Project/service-worker.js",
-    "static/css/main.6deaff27.chunk.css.map": "/API-Project/static/css/main.6deaff27.chunk.css.map",
-    "static/js/2.9257a7a9.chunk.js.LICENSE.txt": "/API-Project/static/js/2.9257a7a9.chunk.js.LICENSE.txt"
+    "static/css/main.112357de.chunk.css.map": "/API-Project/static/css/main.112357de.chunk.css.map",
+    "static/js/2.a00190a1.chunk.js.LICENSE.txt": "/API-Project/static/js/2.a00190a1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0370f7e0.js",
-    "static/js/2.9257a7a9.chunk.js",
-    "static/css/main.6deaff27.chunk.css",
-    "static/js/main.253640a0.chunk.js"
+    "static/js/2.a00190a1.chunk.js",
+    "static/css/main.112357de.chunk.css",
+    "static/js/main.613fd94b.chunk.js"
   ]
 }
