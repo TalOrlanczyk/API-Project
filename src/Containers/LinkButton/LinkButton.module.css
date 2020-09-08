@@ -4,7 +4,6 @@
     display: var(--display-link-as-button);
     padding: 0;
     text-align: center;
-    border-radius: var(--link-border-radius);
     font-weight: bold;
 }
 .Size{
@@ -21,7 +20,7 @@
     background-color: var(--hover-overlay);
 }
 .borderRadius{
-    border-radius: 8px;
+    border-radius: var(--link-border-radius);
 }
 .Wrappper{
     width:30vw;
