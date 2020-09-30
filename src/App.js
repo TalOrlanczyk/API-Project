@@ -28,7 +28,7 @@ const App = () => {
           <NavigatorMobile/>
         :null
       }
-      2
+      
     </div>
   );
 }
